@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/build-studio/static/css/main.75c462ff.css",
+    "main.js": "/build-studio/static/js/main.6bea97c2.js",
+    "static/js/787.a2d32057.chunk.js": "/build-studio/static/js/787.a2d32057.chunk.js",
+    "static/media/arrange.jpg": "/build-studio/static/media/arrange.fe28981a52685f7bcd71.jpg",
+    "index.html": "/build-studio/index.html",
+    "main.75c462ff.css.map": "/build-studio/static/css/main.75c462ff.css.map",
+    "main.6bea97c2.js.map": "/build-studio/static/js/main.6bea97c2.js.map",
+    "787.a2d32057.chunk.js.map": "/build-studio/static/js/787.a2d32057.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.75c462ff.css",
+    "static/js/main.6bea97c2.js"
+  ]
+}

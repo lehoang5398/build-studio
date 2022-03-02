@@ -1,0 +1,20 @@
+.teamlateFooter {
+  padding-left: 311px;
+  background: #fff;
+  clear: both;
+  padding-right: 48px;
+  font-family: rubikregular,Arial,Georgia,serif;
+  padding-bottom: 50px;
+  .page-footer {
+    display:flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    .footer-right a {
+      color: #3c3e49;
+      line-height: 1.2;
+      text-decoration: none;
+      font-size: 12px;
+      padding: 20px;
+    }
+  }
+}

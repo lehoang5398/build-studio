@@ -1,0 +1,30 @@
+.search-product{
+  .product-menu-list{
+    display:flex;
+    padding-bottom: 40px;
+    .product-menu-item button{
+      list-style-type: none;
+      margin: 0 12px 0 0;
+      font-size: 12px;
+      color: #3c3e49;
+      cursor: pointer;
+      width: 79px;
+      height: 40px;
+      border: 1px solid #dfe0e6;
+      border-radius: 3px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      &:hover {
+        background-color: #f8f9fa;
+      }
+    }
+  }
+  .description {
+    font-size: 16px;
+    color: #3c3e49;
+    line-height: 28px;
+    margin: 0;
+  }
+}

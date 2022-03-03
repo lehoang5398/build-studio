@@ -60,7 +60,7 @@ function Model(props) {
             <div className='detailContent'>
               <di className='hideOnMobile'>
                 <div className='hide-title'>
-                  <img className='hide-image' src={onView.imageTitle} />
+                  <img className='hide-image' alt ='' src={onView.imageTitle} />
                   <h2 className='hide-title-item'>{onView.ProductName}</h2>
                 </div>
                 <div className='feauter'>

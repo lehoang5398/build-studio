@@ -3,7 +3,7 @@ import Choose from './Choose';
 import SearchBy from './SearchBy';
 import Products from './Products';
 import Model from '../../Model';
-import ModelSearch from './modelSearch/index';
+import ModelSearch from './ModelSearch/index';
 function PageProduct(props) {
   const [modalOpen, setModalOpen] = useState(false);
   const [modelSearch,setModelSearch] = useState(false);

@@ -1,9 +1,10 @@
-import React from 'react';
+import react from 'react';
 import { Product, TitleProduct } from '../../../assets/image';
 function Products(props) {
+  const {onDetail} = props;
   const product = [
     {
-      id:1,
+      id: 1,
       imageTitle: TitleProduct,
       TileText: 'BUILD AN APP LIKE',
       ProductName: '3D Look',
@@ -13,43 +14,49 @@ function Products(props) {
       features: '+ 34 other features',
       from: 'from',
       price: '$ 27',
-      platForm: 'platfrom',
+      platForm: 'PLATFROM',
       ber: 'ber'
     },
     {
-      id:2,
+      id: 2,
       imageTitle: TitleProduct,
       TileText: 'BUILD AN APP LIKE',
-      ProductName: '3D Look',
+      ProductName: '9GAG',
       imageProduct: Product,
       titleBody: 'INCLUDED FEATURES',
       blogBody: 'activity log, Admin Console , Account Creation',
-      features: '+ 34 other features',
+      features: '+ 23 other features',
       from: 'from',
-      price: '$ 27',
-      platForm: 'platfrom',
+      price: '$ 350',
+      platForm: 'PLATFROM',
       ber: 'ber'
     },
     {
-      id:3,
+      id: 3,
       imageTitle: TitleProduct,
       TileText: 'BUILD AN APP LIKE',
-      ProductName: '3D Look',
+      ProductName: 'ASOS',
       imageProduct: Product,
       titleBody: 'INCLUDED FEATURES',
       blogBody: 'activity log, Admin Console , Account Creation',
-      features: '+ 34 other features',
+      features: '+ 48 other features',
       from: 'from',
-      price: '$ 27',
-      platForm: 'platfrom',
+      price: '$ 420',
+      platForm: 'PLATFROM',
       ber: 'ber'
     },
 
   ]
+  const handleOnClickDetail = (item)=>{
+    if(onDetail){
+      onDetail(item)
+      console.log(onDetail);
+    }
+  }
   return (
     <ul className="product-list">
       {product.map((item) => (
-        <li key ={item?.id} className="product-item">
+        <li key={item?.id} className="product-item">
           <div className="templateCard">
             <div className="product-header">
               <img className="product-img" alt="" src={item?.imageTitle} />
@@ -78,7 +85,8 @@ function Products(props) {
                 </div>
               </div>
               <div className="detail">
-                <button className="viewDetail">View Details</button>
+                <button className="viewDetail"
+                  onClick={()=>handleOnClickDetail(item)}>View Details</button>
               </div>
             </div>
           </div>
@@ -86,6 +94,7 @@ function Products(props) {
       ))}
 
     </ul>
+
   );
 }
 

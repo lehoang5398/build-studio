@@ -2,12 +2,19 @@ import React from 'react';
 import { Arrange, Daucong, Search } from '../../../assets/image';
 
 function Choose(props) {
+  const {onSearch} = props;
+  const handleOnClickSearch  = () =>{
+    // console.log("aaaaa")
+    if(onSearch){
+      onSearch()
+    }
+  } 
   return (
     <div className="choose container">
       <h2 className="title-choose">Choose a base </h2>
       <ul className="choose-list">
         <li className="choose-item">
-          <button className="search-btn" type="button">
+          <button className="search-btn" type="button" onClick ={handleOnClickSearch}>
             <img className="icon-search" alt ="" src={Search} />
           </button>
         </li>

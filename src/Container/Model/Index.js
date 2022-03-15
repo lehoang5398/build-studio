@@ -1,5 +1,5 @@
 import React from 'react';
-import { John, Carousel, Build, Buildo, MayTinh, Categories } from '../../assets/image';
+import { John, Carousel, Build, Buildo, MayTinh, Categories } from '../../Assets/image';
 function Model(props) {
   const { onClose, onView } = props
   const handleClose = () => {

@@ -1,5 +1,5 @@
 import react from 'react';
-import { Product, TitleProduct } from '../../../assets/image';
+import { Product, TitleProduct } from '../../../Assets/image';
 function Products(props) {
   const {onDetail} = props;
   const product = [

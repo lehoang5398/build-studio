@@ -1,5 +1,5 @@
 import React from 'react';
-import { Arrange, Daucong, Search } from '../../../assets/image';
+import { Arrange, Daucong, Search } from '../../../Assets/image';
 
 function Choose(props) {
   const {onSearch} = props;

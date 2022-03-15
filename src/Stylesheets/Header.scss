@@ -48,6 +48,9 @@
       border-radius: 3px 3px 0 0;
       /* border: 1px solid #dfe0e6; */
       height: 5px;
+      &:hover ul li{
+        display:block;
+      }
   }
 }
 .options-button {
@@ -59,4 +62,32 @@
       background: #f8f9fa;
       color: #3c3e49
     }
+}
+// ------menu xo ------
+.options-item-Currency{
+  display:none;
+}
+.hidden {
+  display:block !important;
+  position: absolute;
+  z-index: 10000;
+  border: 1px solid #dfe0e6;
+  border-radius: 3px;
+  overflow: hidden;
+  background: #fff;
+  width: 210px;
+  padding: 0;
+  top: px;
+  right: 100px;
+
+}
+.options-item-Currency-item{
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  padding: 14px 18px;
+  border-bottom: 1px solid #dfe0e6;
+  &:hover{
+    background: #f8f9fa;
+  }
 }

@@ -1,7 +1,10 @@
 import react from 'react';
+import { useSelector } from 'react-redux';
 import { Product, TitleProduct } from '../../../Assets/image';
 function Products(props) {
-  const {onDetail} = props;
+  const { onDetail } = props;
+  const unitMoney = useSelector(state => state.unitMoney.unit)
+  console.log(unitMoney);
   const product = [
     {
       id: 1,
@@ -14,8 +17,10 @@ function Products(props) {
       features: '+ 34 other features',
       from: 'from',
       price: '$ 27',
+      euro: ' € 23k',
+      canadian: ' C$ 28k',
       platForm: 'PLATFROM',
-      ber: 'ber'
+      ber: 'ber',
     },
     {
       id: 2,
@@ -28,6 +33,9 @@ function Products(props) {
       features: '+ 23 other features',
       from: 'from',
       price: '$ 350',
+      euro: ' € 350k',
+      canadian: ' C$ 350k',
+      aed: ' د.إ 100k',
       platForm: 'PLATFROM',
       ber: 'ber'
     },
@@ -42,15 +50,26 @@ function Products(props) {
       features: '+ 48 other features',
       from: 'from',
       price: '$ 420',
+      euro: '€ 420k',
+      canadian: ' C$ 420k',
       platForm: 'PLATFROM',
       ber: 'ber'
     },
-
   ]
-  const handleOnClickDetail = (item)=>{
-    if(onDetail){
+  const handleOnClickDetail = (item) => {
+    if (onDetail) {
       onDetail(item)
       console.log(onDetail);
+    }
+  }
+  const CheckUnitMoney = (product) => {
+    switch (unitMoney) {
+      case 'CAD':
+        return product.canadian;
+      case 'EUR':
+        return product.euro;
+      default:
+        return product.price;
     }
   }
   return (
@@ -80,13 +99,13 @@ function Products(props) {
               <div className="title-price">
                 <span className="from">{item?.features}</span>
                 <div className="pricewithmonth">
-                  <span className="price">{item?.price}</span>
+                  <span className="price">{CheckUnitMoney(item)}</span>
                   <span className="platForm">{item?.ber}<br /> {item.platForm} </span>
                 </div>
               </div>
               <div className="detail">
                 <button className="viewDetail"
-                  onClick={()=>handleOnClickDetail(item)}>View Details</button>
+                  onClick={() => handleOnClickDetail(item)}>View Details</button>
               </div>
             </div>
           </div>

@@ -1,5 +1,7 @@
 import React from 'react';
-import { John, Carousel, Build, Buildo, MayTinh, Categories } from '../../Assets/image';
+import { John, Carousel, Build, Buildo, MayTinh, Categories} from '../../Assets/image';
+import { IoMdClose } from "react-icons/io";
+// import {TiAttachmentOutline} from 'react-icons/ti';
 function Model(props) {
   const { onClose, onView } = props
   const handleClose = () => {
@@ -24,7 +26,9 @@ function Model(props) {
     <div className='popHolder'>
       <div className='popup-header'>
         <div className='close-Popup'>
-          <button onClick={handleClose} className='btn-close' >close</button>
+          <button onClick={handleClose} className='btn-close' >
+            <IoMdClose className='icon-close'/>
+          </button>
         </div>
       </div>
       <div className='body-templateDetailPage'>

@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import Choose from './Choose';
 import SearchBy from './SearchBy';
 import Products from './Products';
-import Model from '../../Model';
+import Model from '../../Model/Index';
 import ModelSearch from './ModelSearch/index';
 function PageProduct(props) {
   const [modalOpen, setModalOpen] = useState(false);

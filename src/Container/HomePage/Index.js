@@ -1,6 +1,6 @@
 import React from 'react';
 import Category from './Category';
-import PageProduct from './PageProduct/index,';
+import PageProduct from './PageProduct/Index';
 
 function HomePage(props) {
   return (

@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 function PriceProduct(props) {
   const { Currency, onClick } = props;
   const handleClickPrice = (item) => {
@@ -23,7 +22,6 @@ function PriceProduct(props) {
         ))
       }
     </div>
-
   );
 }
 export default PriceProduct;

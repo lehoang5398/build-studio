@@ -1,14 +1,16 @@
 import React from 'react';
 import Category from './Category';
-import PageProduct from './PageProduct/Index';
-
-function HomePage(props) {
+import PageProduct from './PageProducts';
+import category from '../HomePage/data/Category';
+import Cost from '../HomePage/data/Cost';
+function HomePage() {
   return (
     <div className='product'>
-      <Category/>
+      <Category category={category} cost ={Cost}/>
       <PageProduct/>
     </div>
   );
 }
+
 
 export default HomePage;

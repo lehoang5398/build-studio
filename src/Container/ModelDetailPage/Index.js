@@ -1,7 +1,8 @@
 import React from 'react';
-import { John, Carousel, Build, Buildo, MayTinh, Categories} from '../../Assets/image';
+import { John, Carousel, Build, Buildo, MayTinh } from '../../Assets/image';
 import { IoMdClose } from "react-icons/io";
-// import {TiAttachmentOutline} from 'react-icons/ti';
+import imageProducts from './data/ModelDetail';
+
 function Model(props) {
   const { onClose, onView } = props
   const handleClose = () => {
@@ -9,25 +10,13 @@ function Model(props) {
       onClose()
     }
   }
-  const imageProducts = [{
-    imageProduct: Categories,
-  },
-  {
-    imageProduct: John,
-  },
-  {
-    imageProduct: Categories,
-  },
-  {
-    imageProduct: Categories,
-  },
-  ]
+  
   return (
     <div className='popHolder'>
       <div className='popup-header'>
         <div className='close-Popup'>
           <button onClick={handleClose} className='btn-close' >
-            <IoMdClose className='icon-close'/>
+            <IoMdClose className='icon-close' />
           </button>
         </div>
       </div>
@@ -46,13 +35,14 @@ function Model(props) {
                 <div className='viewSelection-phone'><img alt="" src={Carousel} /></div>
                 <div className='viewSelection-pc'><img alt='' src={MayTinh} /> </div>
               </div>
-              <ul className='slider-thumbnil'>
-                {imageProducts.map((item) => (
-                  <li className='slider-item'>
-                    <div className='slider-image'><img className='' alt='' src={item.imageProduct} /></div>
-                  </li>
-                ))}
-              </ul>
+                <ul className='slider-thumbnil' >
+                  {imageProducts.map((item, index) => (
+                    <li key={index} className='slider-item'>
+                      <div className='slider-image'><img className='' alt='' src={item.imageProduct} /></div>
+                    </li>
+                  ))}
+                </ul>
+
               <div className='slider-info'>
                 <p>These designs are representative of the features included in the app.
                 </p>
@@ -64,7 +54,7 @@ function Model(props) {
             <div className='detailContent'>
               <di className='hideOnMobile'>
                 <div className='hide-title'>
-                  <img className='hide-image' alt ='' src={onView.imageTitle} />
+                  <img className='hide-image' alt='' src={onView.imageTitle} />
                   <h2 className='hide-title-item'>{onView.ProductName}</h2>
                 </div>
                 <div className='feauter'>

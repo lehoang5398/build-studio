@@ -7,7 +7,7 @@ function ModelSearch(props) {
       onCloseSearch()
     }
   }
-  console.log("aa")
+  
   return (
     <div>
       <button onClick={handClose} >close</button>

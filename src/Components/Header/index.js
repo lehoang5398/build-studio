@@ -1,10 +1,11 @@
 import React, { useState,useRef,useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { DirHam, Logo , Dola, Euro, Cur } from '../../Assets/image';
+import { Logo } from '../../Assets/image';
 import { TiArrowSortedDown } from "react-icons/ti";
-import PriceProduct from './PriceProduct';
+import PriceProduct from './Currency';
 import { useDispatch } from 'react-redux';
-import { UnitMoney } from '../../Redux/Actions/Index';
+import { UnitMoney } from '../../Container/HomePage/Actions';
+import Currency from './data/Currency';
 
 function Header(props) {
   const [isOpen, setOpen] = useState(false);
@@ -12,32 +13,7 @@ function Header(props) {
   // const unitMoney = useSelector(state => state.unitMoney.unit)
   const dispath = useDispatch();
   const priceProductRef=useRef(null);
-  const Currency = [
-    {
-      img:Dola,
-      id: 1,
-      Currency: 'Canadian Dollar',
-      value: 'CAD'
-    },
-    {
-      img:DirHam,
-      id: 2,
-      Currency: 'Dirham',
-      value:'DIR'
-    },
-    {
-      img:Euro,
-      id: 3,
-      Currency: 'Euro',
-      value:'EUR'
-    },
-    {
-      img:Cur,
-      id: 4,
-      Currency: 'Indian Rupee',
-      value:'CUR'
-    },
-  ];
+
   const handleClickHidden = () => {
     setOpen(false);
   }
@@ -49,13 +25,12 @@ function Header(props) {
     setPrice(item);
     const action = UnitMoney(item.value)
     dispath(action);
-
   }
+
   function useOnClickOutside(ref, handler) {
     useEffect(
       () => {
         const listener = (event) => {
-          // Do nothing if clicking ref's element or descendent elements
           if (!ref.current || ref.current.contains(event.target)) {
             return;
           }

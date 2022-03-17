@@ -2,8 +2,8 @@ import React,{useState,useEffect} from 'react';
 import Choose from './Choose';
 import SearchBy from './SearchBy';
 import Products from './Products';
-import Model from '../../Model/Index';
-import ModelSearch from './ModelSearch/index';
+import Model from '../ModelDetailPage/Index';
+import ModelSearch from '../ModelSearchPage/index';
 function PageProduct(props) {
   const [modalOpen, setModalOpen] = useState(false);
   const [modelSearch,setModelSearch] = useState(false);
@@ -35,7 +35,6 @@ function PageProduct(props) {
       document.body.style.overflow = 'unset';
     };
   },[modalOpen])
-
 
   return (
     <div className='right-sidebar'>

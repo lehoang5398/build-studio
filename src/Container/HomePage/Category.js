@@ -1,46 +1,20 @@
 
 import { useDispatch } from 'react-redux';
-import { CategoryProduct } from '../../Redux/Actions/Index';
+import { CategoryProduct } from './Actions';
+import PropTypes from 'prop-types';
+
+Category.propTypes = {
+  category:PropTypes.array,
+  cost:PropTypes.array,
+};
 
 function Category(props) {
-  // const [checkCategoryId, setcheckCategoryId] = useState(false);
+  const {category,cost} = props;
   const dispatch = useDispatch();
   const handleCilckCategory = (data) => {
     const action = CategoryProduct(data.id)
     dispatch(action);
-  
   }
-  const category = [
-    { categoryitem: 'Business & finance' ,id:1,},
-    { categoryitem: 'Education' ,id:2},
-    { categoryitem: 'Entertainment & music',id:3 },
-    { categoryitem: 'Food & drink' ,id:4 },
-    { categoryitem: 'Health & fitness', id:5},
-    { categoryitem: 'Lifestyle' },
-    { categoryitem: 'Medical' },
-    { categoryitem: 'Navigation' },
-    { categoryitem: 'News' },
-    { categoryitem: 'Photo & video' },
-    { categoryitem: 'Productivity' },
-    { categoryitem: 'Shopping' },
-    { categoryitem: 'Social' },
-    { categoryitem: 'Travel' },
-    { categoryitem: 'Utilities' },
-  ]
-  const cost = [
-    {
-      price: 'Less than $7,000',
-    },
-    {
-      price: '$7,000 to $17,000'
-    },
-    {
-      price: '$17,000'
-    },
-    {
-      price: '$7,000 to $17,000'
-    }
-  ]
 
   return (
     <section className="left-sidebar">
@@ -65,7 +39,6 @@ function Category(props) {
             </ul>
           ))
           }
-
         </li>
       </ul>
     </section>

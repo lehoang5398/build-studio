@@ -1,10 +1,9 @@
 import React from 'react';
-import { Arrange, Daucong, Search } from '../../../Assets/image';
+import { Search ,Arrange ,Daucong} from '../../Assets/image';
 
 function Choose(props) {
   const {onSearch} = props;
   const handleOnClickSearch  = () =>{
-    // console.log("aaaaa")
     if(onSearch){
       onSearch()
     }

@@ -1,4 +1,4 @@
-import { Categories, John } from "../../../Assets/image";
+import { Categories, John } from "../../../assets/image";
 
 const imageProducts = [{
   imageProduct: Categories,

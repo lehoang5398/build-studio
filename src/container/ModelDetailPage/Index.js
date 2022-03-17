@@ -1,5 +1,5 @@
 import React from 'react';
-import { John, Carousel, Build, Buildo, MayTinh } from '../../Assets/image';
+import { John, Carousel, Build, Buildo, MayTinh } from '../../assets/image';
 import { IoMdClose } from "react-icons/io";
 import imageProducts from './data/ModelDetail';
 

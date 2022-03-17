@@ -1,10 +1,10 @@
 import React, { useState,useRef,useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Logo } from '../../Assets/image';
+import { Logo } from '../../assets/image';
 import { TiArrowSortedDown } from "react-icons/ti";
 import PriceProduct from './Currency';
 import { useDispatch } from 'react-redux';
-import { UnitMoney } from '../../Container/HomePage/Actions';
+import { UnitMoney } from '../../container/HomePage/Actions';
 import Currency from './data/Currency';
 
 function Header(props) {

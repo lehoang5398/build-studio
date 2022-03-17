@@ -1,4 +1,4 @@
-import {TitleProduct,Product} from '../../../Assets/image/index';
+import {TitleProduct,Product} from '../../../assets/image/index';
 
 const dataProducts = [
   {

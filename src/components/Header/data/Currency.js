@@ -1,4 +1,4 @@
-import { Dola,DirHam,Euro ,Cur} from "../../../Assets/image";
+import { Dola,DirHam,Euro ,Cur} from "../../../assets/image";
 const Currency = [
     {
       img:Dola,

@@ -1,6 +1,7 @@
 import React from 'react';
 import { John, Carousel, Build, Buildo, MayTinh } from '../../assets/image';
 import { IoMdClose } from "react-icons/io";
+import { GrAttachment } from "react-icons/gr";
 import imageProducts from './data/ModelDetail';
 
 function Model(props) {
@@ -15,6 +16,12 @@ function Model(props) {
     <div className='popHolder'>
       <div className='popup-header'>
         <div className='close-Popup'>
+        <button className='btn-close-share' >
+            <IoMdClose className='icon-close' />
+          </button>
+          <button className='btn-close-share' >
+            <GrAttachment className='icon-close' />
+          </button>
           <button onClick={handleClose} className='btn-close' >
             <IoMdClose className='icon-close' />
           </button>

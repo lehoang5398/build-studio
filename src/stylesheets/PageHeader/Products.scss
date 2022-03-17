@@ -46,6 +46,26 @@
         margin-top: 2px;
       }
     }
+    .actionbx{
+      height: 40px;
+      width: 40px;
+      font-size: 14px;
+      font-weight: 400;
+    }
+    .morebtn{
+      background: #fff;
+      border: 1px solid #dfe0e6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      color: #000;
+      font-size: 18px;
+    }
   }
 }
 .product-body {

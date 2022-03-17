@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AddToCart } from './Actions';
 import dataProducts from '../HomePage/data/Products';
 import PropTypes from 'prop-types';
+import { GrAdd } from "react-icons/gr";
 
 Products.propTypes = {
   onDetail:PropTypes.any,
@@ -58,7 +59,8 @@ function Products(props) {
                   <span>{item?.ProductName}</span>
                 </div>
                 <div className="actionbx">
-                  <input className="morebtn" type="checkbox" id="vehicle1" name="vehicle1" defaultValue="Bike" />
+                  <button className="morebtn"><GrAdd/></button>
+                  {/* <input className="morebtn" type="checkbox" id="vehicle1" name="vehicle1" defaultValue="Bike" /> */}
                 </div>
               </div>
               <div className="product-body">

@@ -9,10 +9,22 @@ function PageProduct(props) {
   const [modelSearch,setModelSearch] = useState(false);
   const [view,setView] = useState({});
 
+
   const handleOnDetail = (item) =>{
     setModalOpen(true);
     setView(item); 
   }
+  const handleOnClose = () =>{
+    setModalOpen(false)
+  }
+  const handleOnSearch = () =>{
+    setModelSearch(true);
+  }
+
+  const handleOnCloseSearch = () =>{
+    setModelSearch(false)
+  }
+
   useEffect(()=>{
     if (modalOpen) {
       document.body.style.overflow = 'hidden';
@@ -22,19 +34,8 @@ function PageProduct(props) {
     return () => {
       document.body.style.overflow = 'unset';
     };
-  },[modalOpen,modelSearch])
+  },[modalOpen])
 
-  const handleOnClose = () =>{
-    setModalOpen(false)
-  }
-  const handleOnSearch = () =>{
-    setModelSearch(true);
-    // console.log("aaaaaaa");
-  }
-
-  const handleOnCloseSearch = () =>{
-    setModelSearch(false)
-  }
 
   return (
     <div className='right-sidebar'>

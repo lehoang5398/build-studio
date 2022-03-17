@@ -6,15 +6,23 @@ function PriceProduct(props) {
   const handleClickPrice = (item) => {
     if (!Currency) return;
     onClick(item)
-    console.log(onClick);
   }
   return (
-    Currency.map((item) => (
-      <li key={item.id} className='options-item-Currency-item'
-        onClick={() => handleClickPrice(item)}
-      >{item.Currency}
-      </li>
-    ))
+    <div>
+      {
+        Currency.map((item) => (
+          <div key={item.id} className='currencychoose'>
+            <div className='options-img'>
+              <img src={item.img} alt= ""/>
+            </div>
+            <li className='options-item-Currency-item'
+              onClick={() => handleClickPrice(item)}
+            >{item.Currency}
+            </li>
+          </div>
+        ))
+      }
+    </div>
 
   );
 }

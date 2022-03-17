@@ -1,5 +1,8 @@
 import Logo from './header/logo.png';
-
+import DirHam from './header/Dirham.png';
+import Dola from './header/Dola.png';
+import Euro from './header/Euro.png';
+import Cur from './header/Cur.svg';
 import Search from './PageProduct/search.png';
 import Daucong from './PageProduct/daucong.jpg';
 import Arrange from './PageProduct/arrange.jpg';
@@ -12,18 +15,22 @@ import Buildo from './PageProduct/buildo.svg';
 import MayTinh from './PageProduct/maytinh.jpg';
 import Categories from './PageProduct/Categories.png';
 
-export {
-    Logo,
-    Search,
-    Daucong,
-    Arrange,
-    Product,
-    TitleProduct,
-    John,
-    Carousel,
-    Build,
-    Buildo,
-    MayTinh,
-    Categories,
 
+export {
+  Logo,
+  Search,
+  Daucong,
+  Arrange,
+  Product,
+  TitleProduct,
+  John,
+  Carousel,
+  Build,
+  Buildo,
+  MayTinh,
+  Categories,
+  DirHam,
+  Dola,
+  Euro,
+  Cur
 };

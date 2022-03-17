@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
-import hobbyReducer from "./Hobby";
+import CategoryReducer from "./Category";
 import UnitMoney from './UnitMoney';
 
 const rootReducer = combineReducers({
-  product:hobbyReducer,
   unitMoney:UnitMoney,
+  category:CategoryReducer,
 });
 export default rootReducer ;

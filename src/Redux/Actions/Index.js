@@ -5,3 +5,9 @@ export const UnitMoney = (data) =>{
     payload:data,
   }
 }
+export const CategoryProduct = (data) =>{
+  return{
+    type:'ADD_CATEGORY',
+    payload:data,
+  }
+}

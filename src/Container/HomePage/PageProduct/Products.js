@@ -1,10 +1,12 @@
-import react from 'react';
+
 import { useSelector } from 'react-redux';
 import { Product, TitleProduct } from '../../../Assets/image';
 function Products(props) {
   const { onDetail } = props;
   const unitMoney = useSelector(state => state.unitMoney.unit)
-  console.log(unitMoney);
+
+  const categoryId = useSelector(state => state.category.CategoryID)
+    console.log(categoryId);
   const product = [
     {
       id: 1,
@@ -21,6 +23,7 @@ function Products(props) {
       canadian: ' C$ 28k',
       platForm: 'PLATFROM',
       ber: 'ber',
+      categoryId:1,
     },
     {
       id: 2,
@@ -37,7 +40,8 @@ function Products(props) {
       canadian: ' C$ 350k',
       aed: ' د.إ 100k',
       platForm: 'PLATFROM',
-      ber: 'ber'
+      ber: 'ber',
+      categoryId:2,
     },
     {
       id: 3,
@@ -53,7 +57,8 @@ function Products(props) {
       euro: '€ 420k',
       canadian: ' C$ 420k',
       platForm: 'PLATFROM',
-      ber: 'ber'
+      ber: 'ber',
+      categoryId:3,
     },
   ]
   const handleOnClickDetail = (item) => {
@@ -72,9 +77,11 @@ function Products(props) {
         return product.price;
     }
   }
+const newProducts = categoryId ? [product[categoryId]] : product;
+// const checkCategory = product.filter(cate => cate.id === categoryId);
   return (
     <ul className="product-list">
-      {product.map((item) => (
+      {newProducts.map((item) => (
         <li key={item?.id} className="product-item">
           <div className="templateCard">
             <div className="product-header">

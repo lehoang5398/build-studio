@@ -1,51 +1,77 @@
-import React, { useState } from 'react';
+import React, { useState,useRef,useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Logo } from '../../Assets/image';
+import { DirHam, Logo , Dola, Euro, Cur } from '../../Assets/image';
 import { TiArrowSortedDown } from "react-icons/ti";
 import PriceProduct from './PriceProduct';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { UnitMoney } from '../../Redux/Actions/Index';
 
-
 function Header(props) {
-  const [hidden, setHidden] = useState(false);
+  const [isOpen, setOpen] = useState(false);
   const [price, setPrice] = useState({value:'USD'});
-  const unitMoney = useSelector(state => state.unitMoney.unit)
+  // const unitMoney = useSelector(state => state.unitMoney.unit)
   const dispath = useDispatch();
+  const priceProductRef=useRef(null);
   const Currency = [
     {
+      img:Dola,
       id: 1,
       Currency: 'Canadian Dollar',
       value: 'CAD'
-
     },
     {
+      img:DirHam,
       id: 2,
       Currency: 'Dirham',
       value:'DIR'
     },
     {
+      img:Euro,
       id: 3,
       Currency: 'Euro',
       value:'EUR'
     },
     {
+      img:Cur,
       id: 4,
       Currency: 'Indian Rupee',
       value:'CUR'
     },
   ];
-  const handleClick = () => {
-    console.log("aaaaaa");
-    setHidden(!hidden);
+  const handleClickHidden = () => {
+    setOpen(false);
+  }
+  const handleClickOpen = () => {
+    setOpen(true);
   }
   const handleClickMenu = (item) => {
-    setHidden(false)
-    setPrice(item)
+    setOpen(false);
+    setPrice(item);
     const action = UnitMoney(item.value)
     dispath(action);
 
   }
+  function useOnClickOutside(ref, handler) {
+    useEffect(
+      () => {
+        const listener = (event) => {
+          // Do nothing if clicking ref's element or descendent elements
+          if (!ref.current || ref.current.contains(event.target)) {
+            return;
+          }
+          handler(event);
+        };
+        document.addEventListener("mousedown", listener);
+        document.addEventListener("touchstart", listener);
+        return () => {
+          document.removeEventListener("mousedown", listener);
+          document.removeEventListener("touchstart", listener);
+        };
+      },
+      [ref, handler]
+    );
+  }
+  useOnClickOutside(priceProductRef,()=>handleClickHidden())
   return (
     <header className="page-header">
       <div className="header-content">
@@ -73,13 +99,15 @@ function Header(props) {
               Talk to our experts
             </button>
           </li>
-          <li className="options-item">
-            <button onClick={handleClick} type="button" className="options-button">
+          <li className="options-item" ref={priceProductRef}>
+            <button onClick={handleClickOpen} type="button" className="options-button">
               {price.value} <TiArrowSortedDown />
             </button>
-            <ul className={`options-item-Currency ${hidden ? "hidden" : ""}`}>
-              <PriceProduct onClick={handleClickMenu} Currency={Currency} />
-            </ul>
+            {isOpen && (
+            <ul className={'options-item-Currency'}>
+              <PriceProduct onClick={handleClickMenu} Currency={Currency}/>
+            </ul>)
+            }
           </li>
           <li className="options-item">
             <button type="button" className="options-button">

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from './Redux/Store.js';
+import store from './config/Store';
 import {
   BrowserRouter,
   Routes,

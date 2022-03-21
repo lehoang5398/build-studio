@@ -6,7 +6,12 @@ const todoProduct = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_TO_CART': {
       const newProducts = [...state.Products];
-      newProducts.push(action.payload);
+      const carts = state.Products.filter(Product => Product.id === action.payload.id);
+      if(carts.length === 0 ){
+        newProducts.push(action.payload);
+      }else {
+        newProducts.pop(action.payload);
+      }
       return {
         ...state,
         Products:newProducts,
@@ -14,9 +19,11 @@ const todoProduct = (state = initialState, action) => {
     }
     case 'REMOVE_CART': {
       return {
-        state
+        ...state,
+        Products:[]
       }
     } 
+
     default:
       return state;
   }

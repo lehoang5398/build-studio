@@ -10,7 +10,6 @@ function PageProduct() {
   const [isOpenSearch,setIsOpenSearch] = useState(false);
   const [products,setProducts] = useState({});
 
-
   const OnDetail = (item) =>{
     setIsOpenProduct(true);
     setProducts(item); 
@@ -28,7 +27,6 @@ function PageProduct() {
     setIsOpenSearch(false)
   }
   
-
   useEffect(()=>{
     if (isOpenProduct) {
       document.body.style.overflow = 'hidden';

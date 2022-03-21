@@ -13,7 +13,7 @@ export const categoryProduct = (data) =>{
   }
 }
 
-export const setCart = (cart) => {
+export const setCarts = (cart) => {
   return {
     type: 'ADD_TO_CART',
     payload:cart,
@@ -21,6 +21,7 @@ export const setCart = (cart) => {
 }
 
 export const removeCart = (cart) => {
+  console.log(cart);
   return{ 
     type:'REMOVE_CART',
     payload:cart,

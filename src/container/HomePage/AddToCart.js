@@ -6,7 +6,8 @@ AddToCart.propTypes = {
 };
 
 function AddToCart({ products, RemoveCart}) {
-  const removeCart  = () => {
+  console.log(RemoveCart);
+  const RemoveCarts  = () => {
     if(RemoveCart){
       RemoveCart()
     }
@@ -19,7 +20,7 @@ function AddToCart({ products, RemoveCart}) {
             <img className='img-cart-item' alt="" src={item?.img} />
           </li>
         ))}
-        <span onClick={removeCart} className='clear-selection'>Clear selection</span>
+        <span onClick={RemoveCarts} className='clear-selection'>Clear selection</span>
       </ul>
       <div className='build-now'>
         <span className='title-build'>1 template selected</span>

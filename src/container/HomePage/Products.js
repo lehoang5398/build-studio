@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { GrAdd } from "react-icons/gr";
 import { useState } from 'react';
 import AddToCart from './AddToCart';
-import { setCart } from './actions';
+import { removeCart, setCarts } from './actions';
 
 
 Products.propTypes = {
@@ -14,7 +14,7 @@ Products.propTypes = {
 
 function Products({onDetail}) {
   const dispath = useDispatch();
-  const [isCart, setOnCart ] = useState(false);
+  const [isCarts, setOnCarts ] = useState(false);
   const unitMoney = useSelector(state => state.unitMoney.unit)
   const categoryId = useSelector(state => state.category.CategoryID)
   const products = useSelector(state => state.addToCart.Products)
@@ -39,19 +39,24 @@ function Products({onDetail}) {
   }
 
   const handleAddToCart = (item) => {
-      setOnCart(true);
+    setOnCarts(true);
       const cart = {
         id: item.id,
-        img: item.imageTitle,
+        img: item.imageTitle, 
       }
-      const action = setCart(cart);
+      const action = setCarts(cart);
       dispath(action);
   }
-  const RemoveCart = () => {
-    setOnCart(false);
+  const RemoveCarts = () => {
+    setOnCarts(false);
+    const action = removeCart()
+    dispath(action);
   }
-  const newProducts = categoryId ? [dataProducts[categoryId]] : dataProducts;
-    // const checkCategory = product.filter(cate => cate.id === categoryId);
+
+  const newProducts = categoryId ? dataProducts.filter(category => category.id === categoryId) : dataProducts;
+ 
+  
+    console.log(newProducts);
   return (
     <ul className="product-list">
       {newProducts.map((item) => (
@@ -93,7 +98,7 @@ function Products({onDetail}) {
           </div>
         </li>
       ))}
-      {isCart && <AddToCart products ={products} RemoveCart = {RemoveCart}/>}
+      {isCarts && <AddToCart products ={products} RemoveCart = {RemoveCarts}/>}
     </ul>
   );
 }

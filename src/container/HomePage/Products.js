@@ -1,27 +1,30 @@
 
 import { useDispatch, useSelector } from 'react-redux';
-import { AddToCart } from './Actions';
 import dataProducts from '../HomePage/data/Products';
 import PropTypes from 'prop-types';
 import { GrAdd } from "react-icons/gr";
+import { useState } from 'react';
+import AddToCart from './AddToCart';
+import { setCart } from './actions';
+
 
 Products.propTypes = {
   onDetail:PropTypes.any,
 }
 
-function Products(props) {
-  const { onDetail } = props;
-  const unitMoney = useSelector(state => state.unitMoney.unit)
-
-  const categoryId = useSelector(state => state.category.CategoryID)
+function Products({onDetail}) {
   const dispath = useDispatch();
+  const [isCart, setOnCart ] = useState(false);
+  const unitMoney = useSelector(state => state.unitMoney.unit)
+  const categoryId = useSelector(state => state.category.CategoryID)
+  const products = useSelector(state => state.addToCart.Products)
 
-  const handleOnClickDetail = (item) => {
+  const OnClickDetail = (item) => {
     if (onDetail) {
       onDetail(item)
-      console.log(onDetail);
     }
   }
+
   const CheckUnitMoney = (product) => {
     switch (unitMoney) {
       case 'CAD':
@@ -36,14 +39,17 @@ function Products(props) {
   }
 
   const handleAddToCart = (item) => {
-    const cart = {
-      id: item.id,
-      img: item.imageTitle,
-    }
-    const action = AddToCart(cart);
-    dispath(action);
+      setOnCart(true);
+      const cart = {
+        id: item.id,
+        img: item.imageTitle,
+      }
+      const action = setCart(cart);
+      dispath(action);
   }
-
+  const RemoveCart = () => {
+    setOnCart(false);
+  }
   const newProducts = categoryId ? [dataProducts[categoryId]] : dataProducts;
     // const checkCategory = product.filter(cate => cate.id === categoryId);
   return (
@@ -60,7 +66,6 @@ function Products(props) {
                 </div>
                 <div className="actionbx">
                   <button className="morebtn"><GrAdd/></button>
-                  {/* <input className="morebtn" type="checkbox" id="vehicle1" name="vehicle1" defaultValue="Bike" /> */}
                 </div>
               </div>
               <div className="product-body">
@@ -82,14 +87,14 @@ function Products(props) {
               </div>
               <div className="detail">
                 <button className="viewDetail"
-                  onClick={() => handleOnClickDetail(item)}>View Details</button>
+                  onClick={() => OnClickDetail(item)}>View Details</button>
               </div>
             </div>
           </div>
         </li>
       ))}
+      {isCart && <AddToCart products ={products} RemoveCart = {RemoveCart}/>}
     </ul>
-
   );
 }
 

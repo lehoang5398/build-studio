@@ -1,18 +1,19 @@
-import React, { useState,useRef,useEffect } from 'react';
+import React, { useState,useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Logo } from '../../assets/image';
 import { TiArrowSortedDown } from "react-icons/ti";
 import PriceProduct from './Currency';
 import { useDispatch } from 'react-redux';
-import { UnitMoney } from '../../container/HomePage/Actions';
+import { UnitMoney } from '../../container/HomePage/actions';
 import Currency from './data/Currency';
+import useOnClickOutside from '../../unitl/UseOnClickOutside';
 
 function Header(props) {
   const [isOpen, setOpen] = useState(false);
   const [price, setPrice] = useState({value:'USD'});
   // const unitMoney = useSelector(state => state.unitMoney.unit)
   const dispath = useDispatch();
-  const priceProductRef=useRef(null);
+  const priceProductRef = useRef(null);
 
   const handleClickHidden = () => {
     setOpen(false);
@@ -27,25 +28,6 @@ function Header(props) {
     dispath(action);
   }
 
-  function useOnClickOutside(ref, handler) {
-    useEffect(
-      () => {
-        const listener = (event) => {
-          if (!ref.current || ref.current.contains(event.target)) {
-            return;
-          }
-          handler(event);
-        };
-        document.addEventListener("mousedown", listener);
-        document.addEventListener("touchstart", listener);
-        return () => {
-          document.removeEventListener("mousedown", listener);
-          document.removeEventListener("touchstart", listener);
-        };
-      },
-      [ref, handler]
-    );
-  }
   useOnClickOutside(priceProductRef,()=>handleClickHidden())
   return (
     <header className="page-header">

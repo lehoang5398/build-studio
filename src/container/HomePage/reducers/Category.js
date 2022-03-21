@@ -2,9 +2,9 @@ const initialState = {
   CategoryID: null,
 }
 
-const CategoryReducer = (state = initialState, action) => {
+const categoryReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_CATEGORY' :{
+    case 'CHECK_CATEGORY' :{
       const NewCategoryId = action.payload;
       return {
         ...state,
@@ -15,4 +15,4 @@ const CategoryReducer = (state = initialState, action) => {
       return state;
   } 
 }
-export default CategoryReducer;
+export default categoryReducer;

@@ -1,6 +1,6 @@
 
 import { useDispatch } from 'react-redux';
-import { CategoryProduct } from './Actions';
+import { categoryProduct } from './actions';
 import PropTypes from 'prop-types';
 
 Category.propTypes = {
@@ -8,11 +8,10 @@ Category.propTypes = {
   cost:PropTypes.array,
 };
 
-function Category(props) {
-  const {category,cost} = props;
+function Category({category,cost}) {
   const dispatch = useDispatch();
   const handleCilckCategory = (data) => {
-    const action = CategoryProduct(data.id)
+    const action = categoryProduct(data.id)
     dispatch(action);
   }
 

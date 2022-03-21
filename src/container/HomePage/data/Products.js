@@ -1,4 +1,4 @@
-import {TitleProduct,Product} from '../../../assets/image/index';
+import {TitleProduct,Product,GAG,ASOS} from '../../../assets/image/index';
 
 const dataProducts = [
   {
@@ -21,7 +21,7 @@ const dataProducts = [
   },
   {
     id: 2,
-    imageTitle: TitleProduct,
+    imageTitle: GAG,
     TileText: 'BUILD AN APP LIKE',
     ProductName: '9GAG',
     imageProduct: Product,
@@ -39,7 +39,7 @@ const dataProducts = [
   },
   {
     id: 3,
-    imageTitle: TitleProduct,
+    imageTitle: ASOS,
     TileText: 'BUILD AN APP LIKE',
     ProductName: 'ASOS',
     imageProduct: Product,

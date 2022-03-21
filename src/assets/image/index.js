@@ -14,6 +14,8 @@ import Build from './PageProduct/build.svg';
 import Buildo from './PageProduct/buildo.svg';
 import MayTinh from './PageProduct/maytinh.jpg';
 import Categories from './PageProduct/Categories.png';
+import GAG from './PageProduct/9GAG.svg'
+import ASOS from './PageProduct/ASOS.svg'
 
 
 export {
@@ -32,5 +34,7 @@ export {
   DirHam,
   Dola,
   Euro,
-  Cur
+  Cur,
+  GAG,
+  ASOS
 };

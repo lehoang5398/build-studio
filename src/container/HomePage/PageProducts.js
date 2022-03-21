@@ -2,31 +2,35 @@ import React,{useState,useEffect} from 'react';
 import Choose from './Choose';
 import SearchBy from './SearchBy';
 import Products from './Products';
-import Model from '../ModelDetailPage/Index';
-import ModelSearch from '../ModelSearchPage/index';
-function PageProduct(props) {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modelSearch,setModelSearch] = useState(false);
-  const [view,setView] = useState({});
+import DetailProducts from '../ProductsDetail/';
+import ModelSearch from '../ModelSearchPage';
+
+function PageProduct() {
+  const [isOpenProduct, setIsOpenProduct] = useState(false);
+  const [isOpenSearch,setIsOpenSearch] = useState(false);
+  const [products,setProducts] = useState({});
 
 
-  const handleOnDetail = (item) =>{
-    setModalOpen(true);
-    setView(item); 
-  }
-  const handleOnClose = () =>{
-    setModalOpen(false)
-  }
-  const handleOnSearch = () =>{
-    setModelSearch(true);
+  const OnDetail = (item) =>{
+    setIsOpenProduct(true);
+    setProducts(item); 
   }
 
-  const handleOnCloseSearch = () =>{
-    setModelSearch(false)
+  const OnClose = () =>{
+    setIsOpenProduct(false)
   }
+
+  const OnSearch = () =>{
+    setIsOpenSearch(true);
+  }
+
+  const OnCloseSearch = () =>{
+    setIsOpenSearch(false)
+  }
+  
 
   useEffect(()=>{
-    if (modalOpen) {
+    if (isOpenProduct) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
@@ -34,17 +38,17 @@ function PageProduct(props) {
     return () => {
       document.body.style.overflow = 'unset';
     };
-  },[modalOpen])
+  },[isOpenProduct])
 
   return (
     <div className='right-sidebar'>
-      <Choose onSearch = {handleOnSearch}/>
+      <Choose onSearch = {OnSearch}/>
       <div className='container'>
         <SearchBy />
-        <Products onDetail={(item)=>handleOnDetail(item)} />
+        <Products onDetail={(item)=>OnDetail(item)} />
       </div>
-      {modalOpen && <Model onView ={view} onClose={handleOnClose} />}
-      {modelSearch && <ModelSearch onCloseSearch = {handleOnCloseSearch}/>}
+      {isOpenProduct && <DetailProducts product ={products} onClose={OnClose} />}
+      {isOpenSearch && <ModelSearch onCloseSearch = {OnCloseSearch}/>}
     </div>
   );
 }

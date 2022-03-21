@@ -2,9 +2,9 @@ const initialState = {
   unit: '$',
 }
 
-const UnitMoney = (state = initialState, action) => {
+const unitMoney = (state = initialState, action) => {
   switch (action.type) {
-    case 'CHANGE_UNIT_MONEY': {
+    case 'CHECK_UNIT_MONEY': {
       const unitMoney = action.payload
       return {
         ...state,
@@ -15,4 +15,4 @@ const UnitMoney = (state = initialState, action) => {
     return state;
   }
 }
-export default UnitMoney;
+export default unitMoney;

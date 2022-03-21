@@ -1,13 +1,18 @@
 import React from 'react';
 import { Search ,Arrange ,Daucong} from '../../assets/image';
+import PropTypes from 'prop-types';
 
-function Choose(props) {
-  const {onSearch} = props;
+Choose.propTypes = {
+  onSearch: PropTypes.func,
+}
+
+function Choose({onSearch}) {
   const handleOnClickSearch  = () =>{
     if(onSearch){
       onSearch()
     }
   } 
+  
   return (
     <div className="choose container">
       <h2 className="title-choose">Choose a base </h2>

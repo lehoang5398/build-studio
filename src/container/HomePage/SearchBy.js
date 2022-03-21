@@ -1,6 +1,6 @@
 import React from 'react';
 
-function SearchBy(props) {
+function SearchBy() {
   return (
     <div className="search-product">
       <ul className="product-menu-list">

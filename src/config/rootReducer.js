@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import UnitMoney from "../container/HomePage/reducers/UnitMoney";
-import todoProduct from "../container/HomePage/reducers/AddToCart";
+import todoProduct from "../container/HomePage/reducers/Cart";
 import CategoryReducer from "../container/HomePage/reducers/Category";
 
 

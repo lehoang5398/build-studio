@@ -6,7 +6,6 @@ AddToCart.propTypes = {
 };
 
 function AddToCart({ products, RemoveCart}) {
-  console.log(RemoveCart);
   const RemoveCarts  = () => {
     if(RemoveCart){
       RemoveCart()
@@ -15,7 +14,7 @@ function AddToCart({ products, RemoveCart}) {
   return (
     <div className='add-to-cart'>
       <ul className='cart'>
-        {products.map((item) => (
+        {products?.length > 0 && products.map((item) => (
           <li className='cart-item' key={item?.id}>
             <img className='img-cart-item' alt="" src={item?.img} />
           </li>

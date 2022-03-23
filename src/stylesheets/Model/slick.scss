@@ -1,0 +1,40 @@
+.slick-dots {
+  display: none !important;
+}
+.slick-slider {
+  width: 99% !important;
+}
+.slick-track {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  
+}
+.slick-slide {
+  padding: 12px 0 !important;
+  width: calc(25% - 6px) !important;
+  margin: 0 8px 0 0 !important;
+  border: 1px solid #9b9fb1 !important;
+}
+.slick-arrow {
+  width: 20px;
+  height: 20px;
+  font-size: 0;
+  line-height: 0;
+}
+.slick-prev{
+  position: absolute;
+  top: 50px;
+  z-index: 10000;
+}
+.slick-next {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  z-index: 10000;
+  
+}
+.slick-list {
+  min-width: 470px;
+  overflow: hidden;
+}

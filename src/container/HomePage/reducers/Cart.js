@@ -6,15 +6,14 @@ const todoProduct = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_TO_CART': {
       const newProducts = [...state.Products];
-      const carts = state.Products.filter(Product => Product.id === action.payload.id);
-      if(carts.length === 0 ){
+      // const carts = state.Products.filter(Product => Product.id === action.payload.id);
+      // if(carts.length === 0 ){
         newProducts.push(action.payload);
-      }else {
-        newProducts.pop(action.payload);
-      }
+      // }else {
+      //   newProducts.pop(action.payload);
+      // }
       return {
-        ...state,
-        Products:newProducts,
+        Products : newProducts,
       };
     }
     case 'REMOVE_CART': {
@@ -22,7 +21,14 @@ const todoProduct = (state = initialState, action) => {
         ...state,
         Products:[]
       }
-    } 
+    }
+    case 'REMOVE_CART_ITEM':{
+      const indexItem = state.Products.findIndex(Product => Product.id === action.payload);
+      state.Products.splice(indexItem,1);
+      return {
+        Products : state.Products
+      }
+    }
 
     default:
       return state;

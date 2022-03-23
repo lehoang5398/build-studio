@@ -13,17 +13,24 @@ export const categoryProduct = (data) =>{
   }
 }
 
-export const setCarts = (cart) => {
+export const setCarts = (carts) => {
   return {
     type: 'ADD_TO_CART',
-    payload:cart,
+    payload:carts,
+  }
+}
+
+export const removeCartItem = (idCartItem) => {
+  return {
+    type : 'REMOVE_CART_ITEM',
+    payload:idCartItem,
   }
 }
 
 export const removeCart = (cart) => {
-  console.log(cart);
   return{ 
     type:'REMOVE_CART',
     payload:cart,
   }
 }
+

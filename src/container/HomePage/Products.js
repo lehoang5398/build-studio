@@ -5,19 +5,20 @@ import PropTypes from 'prop-types';
 import { GrAdd } from "react-icons/gr";
 import { useState } from 'react';
 import AddToCart from './AddToCart';
-import { removeCart, setCarts } from './actions';
+import { removeCart, removeCartItem as removeCartItemAction, setCarts } from './actions';
 
 
 Products.propTypes = {
-  onDetail:PropTypes.any,
+  onDetail: PropTypes.any,
 }
 
-function Products({onDetail}) {
+function Products({ onDetail }) {
   const dispath = useDispatch();
-  const [isCarts, setOnCarts ] = useState(false);
-  const unitMoney = useSelector(state => state.unitMoney.unit)
-  const categoryId = useSelector(state => state.category.CategoryID)
-  const products = useSelector(state => state.addToCart.Products)
+  const [isCarts, setOnCarts] = useState(false);
+  const unitMoney = useSelector(state => state.unitMoney.unit);
+  const categoryId = useSelector(state => state.category.CategoryID);
+  const products = useSelector(state => state.addToCart.Products);
+  const [chooseIdCartItem, setChooseIdCartItem] = useState(products);
 
   const OnClickDetail = (item) => {
     if (onDetail) {
@@ -37,16 +38,34 @@ function Products({onDetail}) {
         return product.price;
     }
   }
-
+ 
   const handleAddToCart = (item) => {
     setOnCarts(true);
-      const cart = {
-        id: item.id,
-        img: item.imageTitle, 
-      }
-      const action = setCarts(cart);
-      dispath(action);
+    const cart = {
+      id: item.id,
+      img: item.imageTitle,
+    }
+    const action = setCarts(cart);
+    dispath(action);
   }
+
+  const removeCartItem = (idCart) => {
+    dispath(removeCartItemAction(idCart))
+    const idx = chooseIdCartItem.findIndex(item => item === idCart);
+    const newArr = chooseIdCartItem.splice(idx, 1)
+    setChooseIdCartItem(newArr)
+
+  }
+
+  const onSelectActions = (item) => {
+    const idex = products.findIndex(p => p.id === item.id)
+    if (idex < 0) {
+      handleAddToCart(item)
+    } else {
+      removeCartItem(item.id)
+    }
+  }
+
   const RemoveCarts = () => {
     setOnCarts(false);
     const action = removeCart()
@@ -54,15 +73,13 @@ function Products({onDetail}) {
   }
 
   const newProducts = categoryId ? dataProducts.filter(category => category.id === categoryId) : dataProducts;
- 
-  
-    console.log(newProducts);
+
   return (
     <ul className="product-list">
-      {newProducts.map((item) => (
-        <li key={item?.id} className="product-item">  
+      {newProducts.map((item, index) => (
+        <li key={index} className="product-item">
           <div className="templateCard">
-            <div onClick={() => handleAddToCart(item)}>
+            <div onClick={() => onSelectActions(item)}>
               <div className="product-header">
                 <img className="product-img" alt="" src={item?.imageTitle} />
                 <div className="title-text">
@@ -70,7 +87,7 @@ function Products({onDetail}) {
                   <span>{item?.ProductName}</span>
                 </div>
                 <div className="actionbx">
-                  <button className="morebtn"><GrAdd/></button>
+                  <button className="morebtn"><GrAdd /></button>
                 </div>
               </div>
               <div className="product-body">
@@ -98,7 +115,7 @@ function Products({onDetail}) {
           </div>
         </li>
       ))}
-      {isCarts && <AddToCart products ={products} RemoveCart = {RemoveCarts}/>}
+      {isCarts && <AddToCart products={products} RemoveCart={RemoveCarts} />}
     </ul>
   );
 }

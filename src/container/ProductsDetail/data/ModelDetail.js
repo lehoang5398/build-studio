@@ -12,5 +12,12 @@ const imageProducts = [{
 {
   imageProduct: Categories,
 },
+{
+  imageProduct: Categories,
+},
+{
+  imageProduct: Categories,
+},
+
 ]
 export default imageProducts;

@@ -1,5 +1,5 @@
 import { Dola,DirHam,Euro ,Cur} from "../../../assets/image";
-const Currency = [
+const currencies = [
     {
       img:Dola,
       id: 1,
@@ -26,4 +26,4 @@ const Currency = [
     },
   ];
 
-  export default Currency;
+  export default currencies;

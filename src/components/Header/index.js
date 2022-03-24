@@ -4,14 +4,13 @@ import { Logo } from '../../assets/image';
 import { TiArrowSortedDown } from "react-icons/ti";
 import PriceProduct from './Currency';
 import { useDispatch } from 'react-redux';
-import { UnitMoney } from '../../container/HomePage/actions';
-import Currency from './data/Currency';
+import { unitMoney } from '../../container/HomePage/actions';
+import currency from './data/currencies';
 import useOnClickOutside from '../../unitl/UseOnClickOutside';
 
-function Header(props) {
+function Header() {
   const [isOpen, setOpen] = useState(false);
   const [price, setPrice] = useState({value:'USD'});
-  // const unitMoney = useSelector(state => state.unitMoney.unit)
   const dispath = useDispatch();
   const priceProductRef = useRef(null);
 
@@ -24,7 +23,7 @@ function Header(props) {
   const handleClickMenu = (item) => {
     setOpen(false);
     setPrice(item);
-    const action = UnitMoney(item.value)
+    const action = unitMoney(item.value)
     dispath(action);
   }
 
@@ -62,7 +61,7 @@ function Header(props) {
             </button>
             {isOpen && (
             <ul className={'options-item-Currency'}>
-              <PriceProduct onClick={handleClickMenu} Currency={Currency}/>
+              <PriceProduct onClick={handleClickMenu} currency={currency}/>
             </ul>)
             }
           </li>

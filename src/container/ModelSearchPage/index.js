@@ -1,18 +1,18 @@
 import React from 'react';
 
 function ModelSearch(props) {
-  const {onCloseSearch} =props;
-  const handClose = () =>{
-    if(onCloseSearch){
+  const { onCloseSearch } = props;
+  const handClose = () => {
+    if (onCloseSearch) {
       onCloseSearch()
     }
   }
-  
+
   return (
     <div>
       <button onClick={handClose} >close</button>
-      <img alt ="" />
-     <input/>
+      <img alt="" />
+      <input />
     </div>
   );
 }

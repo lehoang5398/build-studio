@@ -1,13 +1,13 @@
 import React from 'react';
-import Category from './Category';
-import PageProduct from './PageProducts';
-import category from './data/Category';
-import Cost from './data/Cost';
+import Categories from './Categories';
+import ProductsWrapper from './ProductsWrapper';
+import categories from './data/categories';
+import Cost from './data/prices';
 function HomePage() {
   return (
     <div className='product'>
-      <Category category={category} cost ={Cost}/>
-      <PageProduct/>
+      <Categories category={categories} cost ={Cost}/>
+      <ProductsWrapper/>
     </div>
   );
 }

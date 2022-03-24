@@ -1,6 +1,6 @@
 import React from 'react';
 
-function SearchBy() {
+function ProductsSearch() {
   return (
     <div className="search-product">
       <ul className="product-menu-list">
@@ -13,4 +13,4 @@ function SearchBy() {
   );
 }
 
-export default SearchBy;
+export default ProductsSearch;

@@ -1,6 +1,6 @@
 
 import { useDispatch, useSelector } from 'react-redux';
-import dataProducts from '../HomePage/data/Products';
+import dataProducts from '../HomePage/data/products';
 import PropTypes from 'prop-types';
 import { GrAdd } from "react-icons/gr";
 import { useState } from 'react';
@@ -12,7 +12,7 @@ Products.propTypes = {
   onDetail: PropTypes.any,
 }
 
-function Products({ onDetail }) {
+function Products({ OnDetailProduct }) {
   const dispath = useDispatch();
   const [isCarts, setOnCarts] = useState(false);
   const unitMoney = useSelector(state => state.unitMoney.unit);
@@ -20,13 +20,13 @@ function Products({ onDetail }) {
   const products = useSelector(state => state.addToCart.Products);
   const [chooseIdCartItem, setChooseIdCartItem] = useState(products);
 
-  const OnClickDetail = (item) => {
-    if (onDetail) {
-      onDetail(item)
+  const onClickDetail = (item) => {
+    if (OnDetailProduct) {
+      OnDetailProduct(item)
     }
-  }
+  };
 
-  const CheckUnitMoney = (product) => {
+  const checkUnitMoney = (product) => {
     switch (unitMoney) {
       case 'CAD':
         return product.canadian;
@@ -37,7 +37,7 @@ function Products({ onDetail }) {
       default:
         return product.price;
     }
-  }
+  };
  
   const handleAddToCart = (item) => {
     setOnCarts(true);
@@ -47,7 +47,7 @@ function Products({ onDetail }) {
     }
     const action = setCarts(cart);
     dispath(action);
-  }
+  };
 
   const removeCartItem = (idCart) => {
     dispath(removeCartItemAction(idCart))
@@ -55,7 +55,7 @@ function Products({ onDetail }) {
     const newArr = chooseIdCartItem.splice(idx, 1)
     setChooseIdCartItem(newArr)
 
-  }
+  };
 
   const onSelectActions = (item) => {
     const idex = products.findIndex(p => p.id === item.id)
@@ -64,16 +64,15 @@ function Products({ onDetail }) {
     } else {
       removeCartItem(item.id)
     }
-  }
+  };
 
-  const RemoveCarts = () => {
+  const removeCarts = () => {
     setOnCarts(false);
     const action = removeCart()
     dispath(action);
-  }
+  };
 
   const newProducts = categoryId ? dataProducts.filter(category => category.id === categoryId) : dataProducts;
-
   return (
     <ul className="product-list">
       {newProducts.map((item, index) => (
@@ -103,19 +102,19 @@ function Products({ onDetail }) {
               <div className="title-price">
                 <span className="from">{item?.features}</span>
                 <div className="pricewithmonth">
-                  <span className="price">{CheckUnitMoney(item)}</span>
+                  <span className="price">{checkUnitMoney(item)}</span>
                   <span className="platForm">{item?.ber}<br /> {item.platForm} </span>
                 </div>
               </div>
               <div className="detail">
                 <button className="viewDetail"
-                  onClick={() => OnClickDetail(item)}>View Details</button>
+                  onClick={() => onClickDetail(item)}>View Details</button>
               </div>
             </div>
           </div>
         </li>
       ))}
-      {isCarts && <AddToCart products={products} RemoveCart={RemoveCarts} />}
+      {isCarts && <AddToCart products={products} RemoveCart={removeCarts} />}
     </ul>
   );
 }

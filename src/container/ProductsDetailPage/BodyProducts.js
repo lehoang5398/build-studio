@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Carousel, Build, Buildo, MayTinh , Categories } from '../../assets/image';
+import { Carousel, Build, Buildo, MayTinh , Categories, VienImg } from '../../assets/image';
 import PropTypes from 'prop-types';
 import Slider from 'react-slick';
 
@@ -36,6 +36,7 @@ function BodyProducts({products,imageProducts}) {
         <div className='container-page'>
           <div className='detailSlider'>
             <div className='slider-privew'>
+              <img className='deviceFrame-vien' alt = '' src = {VienImg}/>
               <img alt='' className='deviceFrame' src={srcImage} />
             </div>
             <div className='info-block-wrapper'>
@@ -66,7 +67,7 @@ function BodyProducts({products,imageProducts}) {
             </div>
           </div>
           <div className='detailContent'>
-            <di className='hideOnMobile'>
+            <div className='hideOnMobile'>
               <div className='hide-title'>
                 <img className='hide-image' alt='' src={products.imageTitle} />
                 <h2 className='hide-title-item'>{products.ProductName}</h2>
@@ -133,7 +134,7 @@ function BodyProducts({products,imageProducts}) {
                   </span>
                 </div>
               </div>
-            </di>
+            </div>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import {TitleProduct,Product,GAG,ASOS} from '../../../assets/image/index';
 
-const dataProducts = [
+const products = [
   {
     id: 1,
     imageTitle: TitleProduct,
@@ -56,4 +56,4 @@ const dataProducts = [
     categoryId: 3,
   },
 ]
-export default dataProducts;
+export default products;

@@ -6,11 +6,13 @@ AddToCart.propTypes = {
 };
 
 function AddToCart({ products, RemoveCart}) {
+
   const RemoveCarts  = () => {
     if(RemoveCart){
       RemoveCart()
     }
-  }
+  };
+  
   return (
     <div className='add-to-cart'>
       <ul className='cart'>

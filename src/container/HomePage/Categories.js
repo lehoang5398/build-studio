@@ -3,15 +3,14 @@ import { useDispatch } from 'react-redux';
 import { categoryProduct } from './actions';
 import PropTypes from 'prop-types';
 
-Category.propTypes = {
+Categories.propTypes = {
   category:PropTypes.array,
   cost:PropTypes.array,
 };
 
-function Category({category,cost}) {
+function Categories({category,cost}) {
   const dispatch = useDispatch();
   const handleCilckCategory = (data) => {
-    // console.log(data);
     const action = categoryProduct(data.id)
     dispatch(action);
   }
@@ -45,4 +44,4 @@ function Category({category,cost}) {
   );
 }
 
-export default Category;
+export default Categories;

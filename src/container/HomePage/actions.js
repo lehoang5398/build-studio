@@ -1,5 +1,5 @@
 
-export const UnitMoney = (data) =>{
+export const unitMoney = (data) =>{
   return {
     type:'CHECK_UNIT_MONEY',
     payload:data,

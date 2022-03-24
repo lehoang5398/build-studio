@@ -1,14 +1,15 @@
 import BodyProducts from './BodyProducts';
 import { IoMdClose } from "react-icons/io";
 import { GrAttachment } from "react-icons/gr";
+import { BsArrowsFullscreen } from "react-icons/bs";
 import FooterProducts from './FooterProducts';
-import imageProducts from './data/ModelDetail';
+import imageProducts from './data/imageProducts';
 
-function DetailProducts({ products, onClose }) {
+function DetailProducts({ products, onCloseProducts }) {
   
   const handleClose = () => {
-    if (onClose) {
-      onClose()
+    if (onCloseProducts) {
+      onCloseProducts()
     }
   };
 
@@ -17,7 +18,7 @@ function DetailProducts({ products, onClose }) {
       <div className='popup-header'>
         <div className='close-Popup'>
           <button className='btn-close-share' >
-            <IoMdClose className='icon-close' />
+            <BsArrowsFullscreen className='icon-close' />
           </button>
           <button className='btn-close-share' >
             <GrAttachment className='icon-close' />

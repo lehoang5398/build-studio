@@ -2,16 +2,16 @@ import React from 'react';
 import { Search ,Arrange ,Daucong} from '../../assets/image';
 import PropTypes from 'prop-types';
 
-Choose.propTypes = {
+ProductsChoose.propTypes = {
   onSearch: PropTypes.func,
 }
 
-function Choose({onSearch}) {
+function ProductsChoose({onSearch}) {
   const handleOnClickSearch  = () =>{
     if(onSearch){
       onSearch()
     }
-  } 
+  };
   
   return (
     <div className="choose container">
@@ -38,4 +38,4 @@ function Choose({onSearch}) {
   );
 }
 
-export default Choose;
+export default ProductsChoose;

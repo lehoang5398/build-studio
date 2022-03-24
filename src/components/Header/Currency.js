@@ -1,15 +1,16 @@
 import React from 'react';
 
-function PriceProduct(props) {
-  const { Currency, onClick } = props;
+function PriceProduct({currency,onClick}) {
+
   const handleClickPrice = (item) => {
-    if (!Currency) return;
+    if (!currency) return;
     onClick(item)
   }
+  
   return (
     <div>
       {
-        Currency.map((item) => (
+        currency.map((item) => (
           <div key={item.id} className='currencychoose'>
             <div className='options-img'>
               <img src={item.img} alt= ""/>

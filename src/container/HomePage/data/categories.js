@@ -1,4 +1,4 @@
-const category = [
+const Categories = [
     { categoryitem: 'Business & finance' ,id:1,},
     { categoryitem: 'Education' ,id:2},
     { categoryitem: 'Entertainment & music',id:3 },
@@ -15,4 +15,4 @@ const category = [
     { categoryitem: 'Travel' ,id:14},
     { categoryitem: 'Utilities',id:15 },
   ];
-export default category;
+export default Categories;

@@ -1,31 +1,31 @@
 import React,{useState,useEffect} from 'react';
-import Choose from './Choose';
-import SearchBy from './SearchBy';
+import ProductsChoose from './ProductsChoose';
+import ProductsSearch from './ProductsSearch';
 import Products from './Products';
 import DetailProducts from '../ProductsDetailPage';
 import ModelSearch from '../ModelSearchPage';
 
-function PageProduct() {
+function ProductsWrapper() {
   const [isOpenProduct, setIsOpenProduct] = useState(false);
   const [isOpenSearch,setIsOpenSearch] = useState(false);
   const [products,setProducts] = useState({});
 
-  const OnDetail = (item) =>{
+  const onDetailProduct = (item) =>{
     setIsOpenProduct(true);
     setProducts(item); 
-  }
+  };
 
-  const OnClose = () =>{
+  const onCloseProducts = () =>{
     setIsOpenProduct(false)
-  }
+  };
 
-  const OnSearch = () =>{
+  const onSearch = () =>{
     setIsOpenSearch(true);
-  }
+  };
 
-  const OnCloseSearch = () =>{
+  const onCloseSearch = () =>{
     setIsOpenSearch(false)
-  }
+  };
   
   useEffect(()=>{
     if (isOpenProduct) {
@@ -36,19 +36,19 @@ function PageProduct() {
     return () => {
       document.body.style.overflow = 'unset';
     };
-  },[isOpenProduct])
+  },[isOpenProduct]);
 
   return (
     <div className='right-sidebar'>
-      <Choose onSearch = {OnSearch}/>
+      <ProductsChoose onSearch = {onSearch}/>
       <div className='container'>
-        <SearchBy />
-        <Products onDetail={(item)=>OnDetail(item)} />
+        <ProductsSearch />
+        <Products OnDetailProduct={(item)=>onDetailProduct(item)} />
       </div>
-      {isOpenProduct && <DetailProducts products ={products} onClose={OnClose} />}
-      {isOpenSearch && <ModelSearch onCloseSearch = {OnCloseSearch}/>}
+      {isOpenProduct && <DetailProducts products ={products} onCloseProducts={onCloseProducts} />}
+      {isOpenSearch && <ModelSearch onCloseSearch = {onCloseSearch}/>}
     </div>
   );
 }
 
-export default PageProduct;
+export default ProductsWrapper;

@@ -1,4 +1,4 @@
-const cost = [
+const prices = [
   {
     price: 'Less than $7,000',
   },
@@ -12,4 +12,4 @@ const cost = [
     price: '$7,000 to $17,000'
   }
 ]
-export default cost;
+export default prices;

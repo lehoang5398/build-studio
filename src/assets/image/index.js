@@ -19,6 +19,7 @@ import ASOS from './pageProduct/ASOS.svg';
 import Management from './pageProduct/Management.png';
 import Dynam from './pageProduct/Dynam.png';
 import VienImg from './pageProduct/vienImg.png';
+import EXV from './header/experticon1.png';
 
 
 export {
@@ -42,5 +43,6 @@ export {
   ASOS,
   Management,
   Dynam,
-  VienImg
+  VienImg,
+  EXV
 };

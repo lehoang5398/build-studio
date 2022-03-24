@@ -39,14 +39,12 @@
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 0;
-    .options-item {
-      /* padding: 13px 24px 22px; */
+    .options-item { 
+      // background: url('../assets/image/header/experticon1.png');
       font-size: 12px;
       color: #3c3e49;
       background: #fff;
       margin: 8px 12px 0 0;
-      border-radius: 3px 3px 0 0;
-      /* border: 1px solid #dfe0e6; */
       height: 5px;
       &:hover ul li{
         display:block;
@@ -103,4 +101,12 @@
     max-width: 18px;
     filter: grayscale(100%);
   }
+}
+.hidden {
+  font-size: 20px;
+  color: blue;
+  padding: 12px;
+}
+.block {
+  display: none;
 }

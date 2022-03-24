@@ -1,6 +1,7 @@
 import React from 'react';
+import { RiCheckboxCircleFill } from 'react-icons/ri';
 
-function PriceProduct({currency,onClick}) {
+function PriceProduct({currency,onClick ,isCheckBox}) {
 
   const handleClickPrice = (item) => {
     if (!currency) return;
@@ -19,7 +20,11 @@ function PriceProduct({currency,onClick}) {
               onClick={() => handleClickPrice(item)}
             >{item.Currency}
             </li>
+            <div className={` ${item.id === isCheckBox ? 'hidden': "block"}`}>
+                <RiCheckboxCircleFill/>
+            </div>
           </div>
+          
         ))
       }
     </div>

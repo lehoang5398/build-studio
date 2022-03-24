@@ -1,4 +1,4 @@
-import React, { useState,useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Logo } from '../../assets/image';
 import { TiArrowSortedDown } from "react-icons/ti";
@@ -10,7 +10,8 @@ import useOnClickOutside from '../../unitl/UseOnClickOutside';
 
 function Header() {
   const [isOpen, setOpen] = useState(false);
-  const [price, setPrice] = useState({value:'USD'});
+  const [price, setPrice] = useState({ value: 'USD' });
+  const [isCheckBox,setIsCheckBox] = useState(2);
   const dispath = useDispatch();
   const priceProductRef = useRef(null);
 
@@ -25,9 +26,10 @@ function Header() {
     setPrice(item);
     const action = unitMoney(item.value)
     dispath(action);
+    setIsCheckBox(item.id);
   }
 
-  useOnClickOutside(priceProductRef,()=>handleClickHidden())
+  useOnClickOutside(priceProductRef, () => handleClickHidden())
   return (
     <header className="page-header">
       <div className="header-content">
@@ -51,6 +53,7 @@ function Header() {
         </ul>
         <ul className="options-list">
           <li className="options-item">
+            {/* <img alt ="" src = {EXV}/> */}
             <button type="button" className="options-button">
               Talk to our experts
             </button>
@@ -60,9 +63,12 @@ function Header() {
               {price.value} <TiArrowSortedDown />
             </button>
             {isOpen && (
-            <ul className={'options-item-Currency'}>
-              <PriceProduct onClick={handleClickMenu} currency={currency}/>
-            </ul>)
+              <ul className={'options-item-Currency'}>
+                <PriceProduct onClick={handleClickMenu}
+                  currency={currency}
+                  isCheckBox = {isCheckBox}
+                />
+              </ul>)
             }
           </li>
           <li className="options-item">

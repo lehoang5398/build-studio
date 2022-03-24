@@ -4,7 +4,9 @@
 .choose {
   border-bottom: 1px solid #ecedf0;
   padding: 41px 48px;
-  position: relative;
+  position: fixed;
+  width: 911px;
+  height: 2px;
   display: flex;
   align-items: center;
   justify-content: flex-end;

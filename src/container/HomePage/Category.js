@@ -11,6 +11,7 @@ Category.propTypes = {
 function Category({category,cost}) {
   const dispatch = useDispatch();
   const handleCilckCategory = (data) => {
+    // console.log(data);
     const action = categoryProduct(data.id)
     dispatch(action);
   }

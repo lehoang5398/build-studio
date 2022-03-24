@@ -14,8 +14,10 @@ import Build from './PageProduct/build.svg';
 import Buildo from './PageProduct/buildo.svg';
 import MayTinh from './PageProduct/maytinh.jpg';
 import Categories from './PageProduct/Categories.png';
-import GAG from './PageProduct/9GAG.svg'
-import ASOS from './PageProduct/ASOS.svg'
+import GAG from './PageProduct/9GAG.svg';
+import ASOS from './PageProduct/ASOS.svg';
+import Management from './PageProduct/Management.png';
+import Dynam from './PageProduct/Dynam.png';
 
 
 export {
@@ -36,5 +38,7 @@ export {
   Euro,
   Cur,
   GAG,
-  ASOS
+  ASOS,
+  Management,
+  Dynam
 };

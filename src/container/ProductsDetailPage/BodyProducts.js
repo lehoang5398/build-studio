@@ -1,23 +1,34 @@
-import React from 'react';
-import { John, Carousel, Build, Buildo, MayTinh } from '../../assets/image';
-import imageProducts from './data/ModelDetail';
+import React, { useState } from 'react';
+import { Carousel, Build, Buildo, MayTinh , Categories } from '../../assets/image';
 import PropTypes from 'prop-types';
 import Slider from 'react-slick';
 
 BodyProducts.propTypes = {
-  products: PropTypes.string,
+  products: PropTypes.object.isRequired,
+  imageProducts :PropTypes.array
 };
 
-function BodyProducts(products) {
+function BodyProducts({products,imageProducts}) {
+  const [imageProduct, setImageProduct] = useState({});
 
   const settings = {
     dots: true,
     infinite: false,
-    speed: 500,
+    speed: 500, 
     slidesToScroll: 4,
     slidesToShow: 4
-
   };
+
+  const onShowImageProducts = (item) => {
+    const NewImageProduct = {
+      id:item.id,
+      image:item.imageProduct,
+      
+    }
+    setImageProduct(NewImageProduct);
+  }
+
+  const srcImage = imageProduct.image ?? Categories;
 
   return (
     <div className='body-templateDetailPage'>
@@ -25,7 +36,7 @@ function BodyProducts(products) {
         <div className='container-page'>
           <div className='detailSlider'>
             <div className='slider-privew'>
-              <img alt='' className='deviceFrame' src={John} />
+              <img alt='' className='deviceFrame' src={srcImage} />
             </div>
             <div className='info-block-wrapper'>
               <span className='show-count'>1/26</span>
@@ -39,7 +50,7 @@ function BodyProducts(products) {
               <Slider {...settings}>
                 {imageProducts.map((item, index) => {
                   return (
-                    <li key={index} className='slider-item'>
+                    <li key={index} onClick ={()=> onShowImageProducts(item)}  className='slider-item'>
                       <div className='slider-image'><img className='' alt='' src={item.imageProduct} /></div>
                     </li>
                   )

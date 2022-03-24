@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import Choose from './Choose';
 import SearchBy from './SearchBy';
 import Products from './Products';
-import DetailProducts from '../ProductsDetail/';
+import DetailProducts from '../ProductsDetailPage';
 import ModelSearch from '../ModelSearchPage';
 
 function PageProduct() {
@@ -45,7 +45,7 @@ function PageProduct() {
         <SearchBy />
         <Products onDetail={(item)=>OnDetail(item)} />
       </div>
-      {isOpenProduct && <DetailProducts product ={products} onClose={OnClose} />}
+      {isOpenProduct && <DetailProducts products ={products} onClose={OnClose} />}
       {isOpenSearch && <ModelSearch onCloseSearch = {OnCloseSearch}/>}
     </div>
   );

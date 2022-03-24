@@ -1,15 +1,16 @@
-import React from 'react';
 import BodyProducts from './BodyProducts';
 import { IoMdClose } from "react-icons/io";
 import { GrAttachment } from "react-icons/gr";
 import FooterProducts from './FooterProducts';
+import imageProducts from './data/ModelDetail';
 
 function DetailProducts({ products, onClose }) {
+  
   const handleClose = () => {
     if (onClose) {
       onClose()
     }
-  }
+  };
 
   return (
     <div className='popHolder'>
@@ -26,7 +27,9 @@ function DetailProducts({ products, onClose }) {
           </button>
         </div>
       </div>
-      <BodyProducts products={products} />
+      <BodyProducts 
+      products={products}
+      imageProducts = {imageProducts}/>
       <FooterProducts/>
     </div>
   );

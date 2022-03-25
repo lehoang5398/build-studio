@@ -8,16 +8,16 @@ import AddToCart from './AddToCart';
 import { removeCart, removeCartItem as removeCartItemAction, setCarts } from './actions';
 
 
-function Products({ OnDetailProduct }) {
+function Products({ onDetailProduct }) {
   const dispath = useDispatch();
   const [isCarts, setIsCarts] = useState(false);
   const unitMoney = useSelector(state => state.unitMoney.unit);
-  const categoryId = useSelector(state => state.category.CategoryID);
+  const categoryId = useSelector(state => state.category.categoryId);
   const products = useSelector(state => state.addToCart.products);
 
   const onClickDetail = (item) => {
-    if (OnDetailProduct) {
-      OnDetailProduct(item)
+    if (onDetailProduct) {
+      onDetailProduct(item)
     }
   };
 
@@ -29,7 +29,7 @@ function Products({ OnDetailProduct }) {
         return products.euro;
       case 'DIR':
         return products.aed;
-      default:
+      default:  
         return products.price;
     }
   };
@@ -38,7 +38,7 @@ function Products({ OnDetailProduct }) {
     setIsCarts(true);
     const cart = {
       id: item.id,
-      img: item.imageTitle,
+      img: item.logo,
     }
     const action = setCarts(cart);
     dispath(action);
@@ -46,7 +46,6 @@ function Products({ OnDetailProduct }) {
 
   const removeCartItem = (idCart) => {
     dispath(removeCartItemAction(idCart));
-
   };
 
   const onSelectActions = (item) => {

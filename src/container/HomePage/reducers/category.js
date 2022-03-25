@@ -1,5 +1,5 @@
 const initialState = {
-  CategoryID: null,
+  categoryId: null,
 }
 
 const categoryReducer = (state = initialState, action) => {
@@ -8,7 +8,7 @@ const categoryReducer = (state = initialState, action) => {
       const NewCategoryId = action.payload;
       return {
         ...state,
-        CategoryID:NewCategoryId,
+        categoryId:NewCategoryId,
       };
     }
     default:

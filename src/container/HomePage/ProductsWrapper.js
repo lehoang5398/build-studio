@@ -43,7 +43,7 @@ function ProductsWrapper() {
       <ProductsChoose onSearch = {onSearch}/>
       <div className='container'>
         <ProductsSearch />
-        <Products OnDetailProduct={(item)=>onDetailProduct(item)} />
+        <Products onDetailProduct={(item)=>onDetailProduct(item)} />
       </div>
       {isOpenProduct && <DetailProduct products ={product} onCloseProduct={onCloseProduct} />}
       {isOpenSearch && <ModelSearch onCloseSearch = {onCloseSearch}/>}

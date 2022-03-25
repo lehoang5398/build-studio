@@ -1,7 +1,7 @@
 import React from 'react';
 
 function ProductsNavBar() {
-  
+
   return (
     <div className='search-product'>
       <ul className='product-menu-list'>

@@ -2,7 +2,7 @@ const initialState = {
   Products:[],
 }
 
-const todoProduct = (state = initialState, action) => {
+const todoProductsReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_TO_CART': {
       const newCarts = [...state.Products];
@@ -28,4 +28,4 @@ const todoProduct = (state = initialState, action) => {
       return state;
   }
 }
-export default todoProduct;
+export default todoProductsReducer;

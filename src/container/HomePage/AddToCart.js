@@ -28,7 +28,7 @@ function AddToCart({ products, RemoveCart}) {
         <span onClick={RemoveCarts} className='clear-selection'>Clear selection</span>
       </ul>
       <div className='build-now'>
-        <span className='title-build'>1 template selected</span>
+        <span className='title-build'>{products.length} template selected</span>
         <div className='btn-build-now'>
           <span className='build-now'>Build Now</span>
         </div>

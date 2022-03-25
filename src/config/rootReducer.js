@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
-import UnitMoney from "../container/HomePage/reducers/UnitMoney";
-import todoProduct from "../container/HomePage/reducers/Cart";
-import CategoryReducer from "../container/HomePage/reducers/Category";
+import unitMoneyReducer from "../container/HomePage/reducers/unitMoney";
+import todoProductsReducer from "../container/HomePage/reducers/carts";
+import CategoryReducer from "../container/HomePage/reducers/category";
 
 
 const rootReducer = combineReducers({
-  unitMoney:UnitMoney,
+  unitMoney:unitMoneyReducer,
   category:CategoryReducer,
-  addToCart:todoProduct,
+  addToCart:todoProductsReducer,
 });
 export default rootReducer ;

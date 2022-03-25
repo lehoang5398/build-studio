@@ -18,7 +18,6 @@ function Products({ OnDetailProduct }) {
   const unitMoney = useSelector(state => state.unitMoney.unit);
   const categoryId = useSelector(state => state.category.CategoryID);
   const products = useSelector(state => state.addToCart.Products);
-  console.log(products);
 
   const onClickDetail = (item) => {
     if (OnDetailProduct) {

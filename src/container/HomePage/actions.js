@@ -9,14 +9,14 @@ import {
 
 export const unitMoney = (data) => {
   return {
-    type: CHECK_CATEGORY,
+    type: CHECK_UNIT_MONEY,
     payload: data,
   }
 }
 
 export const categoryProduct = (data) => {
   return {
-    type: CHECK_UNIT_MONEY,
+    type: CHECK_CATEGORY,
     payload: data,
   }
 }

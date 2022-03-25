@@ -8,11 +8,11 @@ const unitMoneyReducer = (state = initialState, action) => {
       const unitMoney = action.payload
       return {
         ...state,
-        unit:unitMoney,
+        unit: unitMoney,
       };
     }
-    default: 
-    return state;
+    default:
+      return state;
   }
 }
 export default unitMoneyReducer;

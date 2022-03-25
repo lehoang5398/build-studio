@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import ProductsChoose from './ProductsChoose';
 import Products from './Products';
 import DetailProduct from '../ProductsDetailPage';
@@ -7,27 +7,27 @@ import ProductsNavBar from './ProductsNavBar';
 
 function ProductsWrapper() {
   const [isOpenProduct, setIsOpenProduct] = useState(false);
-  const [isOpenSearch,setIsOpenSearch] = useState(false);
-  const [product,setProduct] = useState({});
+  const [isOpenSearch, setIsOpenSearch] = useState(false);
+  const [product, setProduct] = useState({});
 
-  const onDetailProduct = (item) =>{
+  const onDetailProduct = (item) => {
     setIsOpenProduct(true);
-    setProduct(item); 
+    setProduct(item);
   };
 
-  const onCloseProduct = () =>{
+  const onCloseProduct = () => {
     setIsOpenProduct(false)
   };
 
-  const onSearch = () =>{
+  const onSearch = () => {
     setIsOpenSearch(true);
   };
 
-  const onCloseSearch = () =>{
+  const onCloseSearch = () => {
     setIsOpenSearch(false)
   };
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     if (isOpenProduct) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -36,17 +36,17 @@ function ProductsWrapper() {
     return () => {
       document.body.style.overflow = 'unset';
     };
-  },[isOpenProduct]);
+  }, [isOpenProduct]);
 
   return (
     <div className='right-sidebar'>
-      <ProductsChoose onSearch = {onSearch}/>
+      <ProductsChoose onSearch={onSearch} />
       <div className='container'>
         <ProductsNavBar />
-        <Products onDetailProduct={(item)=>onDetailProduct(item)} />
+        <Products onDetailProduct={(item) => onDetailProduct(item)} />
       </div>
-      {isOpenProduct && <DetailProduct products ={product} onCloseProduct={onCloseProduct} />}
-      {isOpenSearch && <ModelSearch onCloseSearch = {onCloseSearch}/>}
+      {isOpenProduct && <DetailProduct products={product} onCloseProduct={onCloseProduct} />}
+      {isOpenSearch && <ModelSearch onCloseSearch={onCloseSearch} />}
     </div>
   );
 }

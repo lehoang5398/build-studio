@@ -29,11 +29,11 @@ function Products({ onDetailProduct }) {
         return products.euro;
       case 'DIR':
         return products.aed;
-      default:  
+      default:
         return products.price;
     }
   };
- 
+
   const handleAddToCart = (item) => {
     setIsCarts(true);
     const cart = {
@@ -64,7 +64,7 @@ function Products({ onDetailProduct }) {
   };
 
   const newProducts = categoryId ? dataProducts.filter(category => category.id === categoryId) : dataProducts;
-  
+
   return (
     <ul className='product-list'>
       {newProducts.map((item, index) => (

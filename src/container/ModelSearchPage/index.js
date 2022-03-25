@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-function ModelSearch({onCloseSearch}) {
+function ModelSearch({ onCloseSearch }) {
 
   const handClose = () => {
     if (onCloseSearch) {
@@ -18,7 +18,7 @@ function ModelSearch({onCloseSearch}) {
 }
 
 ModelSearch.prototype = {
-  onCloseSearch:PropTypes.func,
+  onCloseSearch: PropTypes.func,
 }
 
 export default ModelSearch;

@@ -1,4 +1,4 @@
-import {TitleProduct,Product,GAG,ASOS} from '../../../assets/image/index';
+import { TitleProduct, Product, GAG, ASOS } from '../../../assets/image/index';
 
 const products = [
   {
@@ -30,7 +30,7 @@ const products = [
     logo: ASOS,
     name: 'ASOS',
     image: Product,
-    features: ['activity log, Admin Console , Account Creation' &'+ 48 other features'],
+    features: ['activity log, Admin Console , Account Creation' & '+ 48 other features'],
     price: '$ 420',
     euro: '€ 420k',
     canadian: ' C$ 420k',

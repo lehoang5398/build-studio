@@ -1,5 +1,5 @@
 const initialState = {
-  products:[],
+  products: [],
 }
 
 const todoProductsReducer = (state = initialState, action) => {
@@ -8,16 +8,16 @@ const todoProductsReducer = (state = initialState, action) => {
       const newCarts = [...state.products];
       newCarts.push(action.payload);
       return {
-        products : newCarts,
+        products: newCarts,
       };
     }
     case 'REMOVE_CART': {
       return {
         ...state,
-        products:[]
+        products: []
       }
     }
-    case 'REMOVE_CART_ITEM':{
+    case 'REMOVE_CART_ITEM': {
       const newCarts = state.products.filter(product => product.id !== action.payload);
       return {
         products: newCarts

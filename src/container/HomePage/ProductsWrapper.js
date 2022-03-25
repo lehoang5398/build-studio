@@ -2,20 +2,20 @@ import React,{useState,useEffect} from 'react';
 import ProductsChoose from './ProductsChoose';
 import ProductsSearch from './ProductsSearch';
 import Products from './Products';
-import DetailProducts from '../ProductsDetailPage';
+import DetailProduct from '../ProductsDetailPage';
 import ModelSearch from '../ModelSearchPage';
 
 function ProductsWrapper() {
   const [isOpenProduct, setIsOpenProduct] = useState(false);
   const [isOpenSearch,setIsOpenSearch] = useState(false);
-  const [products,setProducts] = useState({});
+  const [product,setProduct] = useState({});
 
   const onDetailProduct = (item) =>{
     setIsOpenProduct(true);
-    setProducts(item); 
+    setProduct(item); 
   };
 
-  const onCloseProducts = () =>{
+  const onCloseProduct = () =>{
     setIsOpenProduct(false)
   };
 
@@ -45,7 +45,7 @@ function ProductsWrapper() {
         <ProductsSearch />
         <Products OnDetailProduct={(item)=>onDetailProduct(item)} />
       </div>
-      {isOpenProduct && <DetailProducts products ={products} onCloseProducts={onCloseProducts} />}
+      {isOpenProduct && <DetailProduct products ={product} onCloseProduct={onCloseProduct} />}
       {isOpenSearch && <ModelSearch onCloseSearch = {onCloseSearch}/>}
     </div>
   );

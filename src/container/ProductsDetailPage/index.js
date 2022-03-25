@@ -4,12 +4,13 @@ import { GrAttachment } from "react-icons/gr";
 import { BsArrowsFullscreen } from "react-icons/bs";
 import FooterProducts from './FooterProducts';
 import imageProducts from './data/imageProducts';
+import PropTypes from 'prop-types';
 
-function DetailProducts({ products, onCloseProducts }) {
-  
+function DetailProduct({ products, onCloseProduct }) {
+
   const handleClose = () => {
-    if (onCloseProducts) {
-      onCloseProducts()
+    if (onCloseProduct) {
+      onCloseProduct()
     }
   };
 
@@ -28,12 +29,17 @@ function DetailProducts({ products, onCloseProducts }) {
           </button>
         </div>
       </div>
-      <BodyProducts 
-      products={products}
-      imageProducts = {imageProducts}/>
-      <FooterProducts/>
+      <BodyProducts
+        products={products}
+        imageProducts={imageProducts} />
+      <FooterProducts />
     </div>
   );
 }
 
-export default DetailProducts;
+DetailProduct.propTypes = {
+  onCloseProduct: PropTypes.func,
+  products: PropTypes.object,
+}
+
+export default DetailProduct;

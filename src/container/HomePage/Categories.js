@@ -3,10 +3,6 @@ import { useDispatch } from 'react-redux';
 import { categoryProduct } from './actions';
 import PropTypes from 'prop-types';
 
-Categories.propTypes = {
-  category:PropTypes.array,
-  cost:PropTypes.array,
-};
 
 function Categories({category,cost}) {
   const dispatch = useDispatch();
@@ -43,5 +39,10 @@ function Categories({category,cost}) {
     </section>
   );
 }
+
+Categories.propTypes = {
+  category:PropTypes.array,
+  cost:PropTypes.array,
+};
 
 export default Categories;

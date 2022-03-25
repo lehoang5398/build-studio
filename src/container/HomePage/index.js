@@ -4,6 +4,7 @@ import ProductsWrapper from './ProductsWrapper';
 import categories from './data/categories';
 import Cost from './data/prices';
 function HomePage() {
+  
   return (
     <div className='product'>
       <Categories category={categories} cost ={Cost}/>

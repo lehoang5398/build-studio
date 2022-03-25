@@ -1,9 +1,9 @@
 import React,{useState,useEffect} from 'react';
 import ProductsChoose from './ProductsChoose';
-import ProductsSearch from './ProductsSearch';
 import Products from './Products';
 import DetailProduct from '../ProductsDetailPage';
 import ModelSearch from '../ModelSearchPage';
+import ProductsNavBar from './ProductsNavBar';
 
 function ProductsWrapper() {
   const [isOpenProduct, setIsOpenProduct] = useState(false);
@@ -42,7 +42,7 @@ function ProductsWrapper() {
     <div className='right-sidebar'>
       <ProductsChoose onSearch = {onSearch}/>
       <div className='container'>
-        <ProductsSearch />
+        <ProductsNavBar />
         <Products onDetailProduct={(item)=>onDetailProduct(item)} />
       </div>
       {isOpenProduct && <DetailProduct products ={product} onCloseProduct={onCloseProduct} />}

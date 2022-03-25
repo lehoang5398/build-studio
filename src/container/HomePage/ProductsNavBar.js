@@ -1,6 +1,7 @@
 import React from 'react';
 
-function ProductsSearch() {
+function ProductsNavBar() {
+  
   return (
     <div className='search-product'>
       <ul className='product-menu-list'>
@@ -13,4 +14,4 @@ function ProductsSearch() {
   );
 }
 
-export default ProductsSearch;
+export default ProductsNavBar;

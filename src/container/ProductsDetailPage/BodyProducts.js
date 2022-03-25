@@ -23,7 +23,6 @@ function BodyProducts({products,imageProducts}) {
     const NewImageProduct = {
       id:item.id,
       image:item.imageProduct,
-      
     }
     setImageProduct(NewImageProduct);
   }

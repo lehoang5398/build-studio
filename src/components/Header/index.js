@@ -11,16 +11,18 @@ import useOnClickOutside from '../../unitl/UseOnClickOutside';
 function Header() {
   const [isOpen, setOpen] = useState(false);
   const [price, setPrice] = useState({ value: 'USD' });
-  const [isCheckBox,setIsCheckBox] = useState(2);
+  const [isCheckBox,setIsCheckBox] = useState(1);
   const dispath = useDispatch();
   const priceProductRef = useRef(null);
 
   const handleClickHidden = () => {
     setOpen(false);
   }
+
   const handleClickOpen = () => {
     setOpen(true);
   }
+  
   const handleClickMenu = (item) => {
     setOpen(false);
     setPrice(item);

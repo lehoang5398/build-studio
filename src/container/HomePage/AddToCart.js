@@ -6,7 +6,6 @@ AddToCart.propTypes = {
 };
 
 function AddToCart({ products, RemoveCart}) {
-
   const RemoveCarts  = () => {
     if(RemoveCart){
       RemoveCart()
@@ -14,6 +13,11 @@ function AddToCart({ products, RemoveCart}) {
   };
   
   return (
+    <>
+    {
+      products.length > 0
+      ?
+      (
     <div className='add-to-cart'>
       <ul className='cart'>
         {products?.length > 0 && products.map((item) => (
@@ -30,6 +34,14 @@ function AddToCart({ products, RemoveCart}) {
         </div>
       </div>
     </div>
+      )
+      :
+      (
+        <>
+        </>
+      )
+    }
+    </>
   );
 }
 

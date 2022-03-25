@@ -23,10 +23,9 @@ const todoProduct = (state = initialState, action) => {
       }
     }
     case 'REMOVE_CART_ITEM':{
-      const indexItem = state.Products.findIndex(Product => Product.id === action.payload);
-      state.Products.splice(indexItem,1);
+      const newProducts = state.Products.filter(Product => Product.id !== action.payload);
       return {
-        Products : state.Products
+        Products: newProducts
       }
     }
 

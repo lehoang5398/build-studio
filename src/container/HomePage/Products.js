@@ -18,7 +18,7 @@ function Products({ OnDetailProduct }) {
   const unitMoney = useSelector(state => state.unitMoney.unit);
   const categoryId = useSelector(state => state.category.CategoryID);
   const products = useSelector(state => state.addToCart.Products);
-  const [chooseIdCartItem, setChooseIdCartItem] = useState(products);
+  console.log(products);
 
   const onClickDetail = (item) => {
     if (OnDetailProduct) {
@@ -50,19 +50,16 @@ function Products({ OnDetailProduct }) {
   };
 
   const removeCartItem = (idCart) => {
-    dispath(removeCartItemAction(idCart))
-    const idx = chooseIdCartItem.findIndex(item => item === idCart);
-    const newArr = chooseIdCartItem.splice(idx, 1)
-    setChooseIdCartItem(newArr)
+    dispath(removeCartItemAction(idCart));
 
   };
 
   const onSelectActions = (item) => {
     const idex = products.findIndex(p => p.id === item.id)
     if (idex < 0) {
-      handleAddToCart(item)
+      handleAddToCart(item);
     } else {
-      removeCartItem(item.id)
+      removeCartItem(item.id);
     }
   };
 
@@ -73,6 +70,7 @@ function Products({ OnDetailProduct }) {
   };
 
   const newProducts = categoryId ? dataProducts.filter(category => category.id === categoryId) : dataProducts;
+  
   return (
     <ul className="product-list">
       {newProducts.map((item, index) => (

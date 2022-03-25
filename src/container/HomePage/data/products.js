@@ -18,6 +18,7 @@ const products = [
     platForm: 'PLATFROM',
     ber: 'ber',
     categoryId: 1,
+    status: false,
   },
   {
     id: 2,
@@ -36,6 +37,7 @@ const products = [
     platForm: 'PLATFROM',
     ber: 'ber',
     categoryId: 2,
+    status: false,
   },
   {
     id: 3,
@@ -54,6 +56,7 @@ const products = [
     platForm: 'PLATFROM',
     ber: 'ber',
     categoryId: 3,
+    status: false,
   },
 ]
 export default products;

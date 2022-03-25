@@ -8,16 +8,12 @@ import AddToCart from './AddToCart';
 import { removeCart, removeCartItem as removeCartItemAction, setCarts } from './actions';
 
 
-Products.propTypes = {
-  onDetail: PropTypes.any,
-}
-
 function Products({ OnDetailProduct }) {
   const dispath = useDispatch();
   const [isCarts, setIsCarts] = useState(false);
   const unitMoney = useSelector(state => state.unitMoney.unit);
   const categoryId = useSelector(state => state.category.CategoryID);
-  const products = useSelector(state => state.addToCart.Products);
+  const products = useSelector(state => state.addToCart.products);
 
   const onClickDetail = (item) => {
     if (OnDetailProduct) {
@@ -25,16 +21,16 @@ function Products({ OnDetailProduct }) {
     }
   };
 
-  const checkUnitMoney = (product) => {
+  const checkUnitMoney = (products) => {
     switch (unitMoney) {
       case 'CAD':
-        return product.canadian;
+        return products.canadian;
       case 'EUR':
-        return product.euro;
+        return products.euro;
       case 'DIR':
-        return product.aed;
+        return products.aed;
       default:
-        return product.price;
+        return products.price;
     }
   };
  
@@ -111,9 +107,13 @@ function Products({ OnDetailProduct }) {
           </div>
         </li>
       ))}
-      {isCarts && <AddToCart products={products} RemoveCart={removeCarts} />}
+      {isCarts && <AddToCart products={products} removeCarts={removeCarts} />}
     </ul>
   );
+}
+
+Products.propTypes = {
+  OnDetailProduct: PropTypes.any,
 }
 
 export default Products;

@@ -1,26 +1,26 @@
 const initialState = {
-  Products:[],
+  products:[],
 }
 
 const todoProductsReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_TO_CART': {
-      const newCarts = [...state.Products];
+      const newCarts = [...state.products];
       newCarts.push(action.payload);
       return {
-        Products : newCarts,
+        products : newCarts,
       };
     }
     case 'REMOVE_CART': {
       return {
         ...state,
-        Products:[]
+        products:[]
       }
     }
     case 'REMOVE_CART_ITEM':{
-      const newCarts = state.Products.filter(Product => Product.id !== action.payload);
+      const newCarts = state.products.filter(product => product.id !== action.payload);
       return {
-        Products: newCarts
+        products: newCarts
       }
     }
 

@@ -1,10 +1,12 @@
+import { CHECK_CATEGORY } from "../constants";
+
 const initialState = {
   categoryId: null,
 }
 
 const categoryReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'CHECK_CATEGORY': {
+    case CHECK_CATEGORY: {
       const NewCategoryId = action.payload;
       return {
         ...state,

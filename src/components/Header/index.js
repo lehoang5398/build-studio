@@ -6,7 +6,7 @@ import PriceProduct from './Currency';
 import { useDispatch } from 'react-redux';
 import { unitMoney } from '../../container/HomePage/actions';
 import currency from './data/currencies';
-import useOnClickOutside from '../../unitl/UseOnClickOutside';
+import useOnClickOutside from '../../utils/UseOnClickOutside';
 
 function Header() {
   const [isOpen, setOpen] = useState(false);

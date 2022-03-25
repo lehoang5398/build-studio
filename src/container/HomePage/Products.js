@@ -112,7 +112,7 @@ function Products({ onDetailProduct }) {
 }
 
 Products.propTypes = {
-  OnDetailProduct: PropTypes.func,
+  onDetailProduct: PropTypes.func,
 }
 
 export default Products;

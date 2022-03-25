@@ -7,7 +7,7 @@ function HomePage() {
   
   return (
     <div className='product'>
-      <Categories category={categories} cost ={Cost}/>
+      <Categories categories={categories} cost ={Cost}/>
       <ProductsWrapper/>
     </div>
   );

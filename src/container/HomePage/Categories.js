@@ -4,7 +4,7 @@ import { categoryProduct } from './actions';
 import PropTypes from 'prop-types';
 
 
-function Categories({category,cost}) {
+function Categories({categories,cost}) {
   const dispatch = useDispatch();
   const handleCilckCategory = (data) => {
     const action = categoryProduct(data.id)
@@ -17,7 +17,7 @@ function Categories({category,cost}) {
         <li className='category'>
           <h4 className='title-category'>Filter by category</h4>
           <ul className='category-list'>
-            {category.map((item,index) => (
+            {categories.map((item,index) => (
               <li key ={index} className='category-item' onClick={()=> handleCilckCategory(item)}><span>{item.categoryitem}</span>
                 <input type='checkbox' id='vehicle1' name='vehicle1' defaultValue='Bike' />
               </li>
@@ -41,7 +41,7 @@ function Categories({category,cost}) {
 }
 
 Categories.propTypes = {
-  category:PropTypes.array,
+  categories:PropTypes.array,
   cost:PropTypes.array,
 };
 

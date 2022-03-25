@@ -43,7 +43,7 @@ function BodyProducts({products,imageProducts}) {
               <span className='comment'>comments </span>
             </div>
             <div className='viewSelection'>
-              <div className='viewSelection-phone'><img alt="" src={Carousel} /></div>
+              <div className='viewSelection-phone'><img alt='' src={Carousel} /></div>
               <div className='viewSelection-pc'><img alt='' src={MayTinh} /> </div>
             </div>
             <ul className='slider-thumbnil' >
@@ -87,19 +87,19 @@ function BodyProducts({products,imageProducts}) {
                 </div>
                 <ul className='includeBox platforms'>
                   <li className='detailRow'>
-                    <img className='imgSection' alt="" src={Carousel} />
+                    <img className='imgSection' alt='' src={Carousel} />
                     <span className='textSection'>
                       iOS app for Apple (iPhones)
                     </span>
                   </li>
                   <li className='detailRow'>
-                    <img className='imgSection' alt="" src={Carousel} />
+                    <img className='imgSection' alt='' src={Carousel} />
                     <span className='textSection'>
                       Android app (for Android phones)
                     </span>
                   </li>
                   <li className='detailRow'>
-                    <img className='imgSection' alt="" src={Carousel} />
+                    <img className='imgSection' alt='' src={Carousel} />
                     <span className='textSection'>
                       Progressive Web App for desktop and mobile
                     </span>

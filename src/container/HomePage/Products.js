@@ -2,7 +2,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import dataProducts from '../HomePage/data/products';
 import PropTypes from 'prop-types';
-import { GrAdd } from "react-icons/gr";
+import { GrAdd } from 'react-icons/gr';
 import { useState } from 'react';
 import AddToCart from './AddToCart';
 import { removeCart, removeCartItem as removeCartItemAction, setCarts } from './actions';
@@ -67,40 +67,40 @@ function Products({ OnDetailProduct }) {
   const newProducts = categoryId ? dataProducts.filter(category => category.id === categoryId) : dataProducts;
   
   return (
-    <ul className="product-list">
+    <ul className='product-list'>
       {newProducts.map((item, index) => (
-        <li key={index} className="product-item">
-          <div className="templateCard">
+        <li key={index} className='product-item'>
+          <div className='templateCard'>
             <div onClick={() => onSelectActions(item)}>
-              <div className="product-header">
-                <img className="product-img" alt="" src={item?.imageTitle} />
-                <div className="title-text">
+              <div className='product-header'>
+                <img className='product-img' alt='' src={item?.logo} />
+                <div className='title-text'>
                   {item?.TileText}
-                  <span>{item?.ProductName}</span>
+                  <span>{item?.name}</span>
                 </div>
-                <div className="actionbx">
-                  <button className="morebtn"><GrAdd /></button>
+                <div className='actionbx'>
+                  <button className='morebtn'><GrAdd /></button>
                 </div>
               </div>
-              <div className="product-body">
-                <img className="product-body-img" alt="" src={item?.imageProduct} />
-                <div className="product-featureDetail">
-                  <span className="body-title">{item?.titleBody}</span>
-                  <span className="body-blog">{item?.blogBody}</span>
-                  <span className="features">{item?.features}</span>
+              <div className='product-body'>
+                <img className='product-body-img' alt='' src={item?.image} />
+                <div className='product-featureDetail'>
+                  <span className='body-title'>INCLUDED FEATURES</span>
+                  <span className='body-blog'>{item?.features[0]}</span>
+                  <span className='features'>{item?.features}</span>
                 </div>
               </div>
             </div>
-            <div className="product-footer">
-              <div className="title-price">
-                <span className="from">{item?.features}</span>
-                <div className="pricewithmonth">
-                  <span className="price">{checkUnitMoney(item)}</span>
-                  <span className="platForm">{item?.ber}<br /> {item.platForm} </span>
+            <div className='product-footer'>
+              <div className='title-price'>
+                <span className='from'>FROM</span>
+                <div className='pricewithmonth'>
+                  <span className='price'>{checkUnitMoney(item)}</span>
+                  <span className='platForm'>ber<br />platform</span>
                 </div>
               </div>
-              <div className="detail">
-                <button className="viewDetail"
+              <div className='detail'>
+                <button className='viewDetail'
                   onClick={() => onClickDetail(item)}>View Details</button>
               </div>
             </div>

@@ -1,7 +1,7 @@
 import BodyProducts from './BodyProducts';
-import { IoMdClose } from "react-icons/io";
-import { GrAttachment } from "react-icons/gr";
-import { BsArrowsFullscreen } from "react-icons/bs";
+import { IoMdClose } from 'react-icons/io';
+import { GrAttachment } from 'react-icons/gr';
+import { BsArrowsFullscreen } from 'react-icons/bs';
 import FooterProducts from './FooterProducts';
 import imageProducts from './data/imageProducts';
 import PropTypes from 'prop-types';

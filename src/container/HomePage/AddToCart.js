@@ -18,7 +18,7 @@ function AddToCart({ products, removeCarts }) {
               <ul className='cart'>
                 {products?.length > 0 && products.map((item) => (
                   <li className='cart-item' key={item?.id}>
-                    <img className='img-cart-item' alt="" src={item?.img} />
+                    <img className='img-cart-item' alt='' src={item?.img} />
                   </li>
                 ))}
                 <span onClick={RemoveCarts} className='clear-selection'>Clear selection</span>

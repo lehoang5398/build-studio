@@ -1,4 +1,4 @@
-import { Categories, Dynam, John, Management } from "../../../assets/image";
+import { Categories, Dynam, John, Management } from '../../../assets/image';
 
 const imageProducts = [{
   id:1,

@@ -27,10 +27,10 @@ export const removeCartItem = (idCartItem) => {
   }
 }
 
-export const removeCart = (cart) => {
+export const removeCart = (carts) => {
   return{ 
     type:'REMOVE_CART',
-    payload:cart,
+    payload:carts,
   }
 }
 

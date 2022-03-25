@@ -14,7 +14,7 @@ Products.propTypes = {
 
 function Products({ OnDetailProduct }) {
   const dispath = useDispatch();
-  const [isCarts, setOnCarts] = useState(false);
+  const [isCarts, setIsCarts] = useState(false);
   const unitMoney = useSelector(state => state.unitMoney.unit);
   const categoryId = useSelector(state => state.category.CategoryID);
   const products = useSelector(state => state.addToCart.Products);
@@ -39,7 +39,7 @@ function Products({ OnDetailProduct }) {
   };
  
   const handleAddToCart = (item) => {
-    setOnCarts(true);
+    setIsCarts(true);
     const cart = {
       id: item.id,
       img: item.imageTitle,
@@ -63,7 +63,7 @@ function Products({ OnDetailProduct }) {
   };
 
   const removeCarts = () => {
-    setOnCarts(false);
+    setIsCarts(false);
     const action = removeCart()
     dispath(action);
   };

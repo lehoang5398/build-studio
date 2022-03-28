@@ -1,5 +1,6 @@
 import React from 'react';
-import { Search, Arrange, Daucong } from '../../assets/image';
+import { Search, Arrange } from '../../assets/image';
+// import { AiOutlinePlus } from 'react-icons/ai';
 import PropTypes from 'prop-types';
 
 ProductsChoose.propTypes = {
@@ -23,8 +24,10 @@ function ProductsChoose({ onSearch }) {
           </button>
         </li>
         <li className='choose-item'>
+        <div className='choose-icon'>
+            {/* <AiOutlinePlus /> */}
+          </div>
           <button className='btn-item'>
-            <img className='choose-img' alt='' src={Daucong} />
             Custom Template
           </button>
         </li>

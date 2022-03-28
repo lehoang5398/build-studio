@@ -1,5 +1,5 @@
 .right-sidebar{
-  width: calc(100% - 263px);
+  width: calc(100% - 20%);
 }
 .choose {
   border-bottom: 1px solid #ecedf0;
@@ -21,7 +21,6 @@
     left: 48px;
   }
   .choose-list {
-    position: absolute;
     display: flex;
     .search-btn{
       width: 38px;
@@ -43,7 +42,7 @@
       margin-right: 12px;
       margin-left: 12px;
     }
-    .choose-img{
+    .choose-icon{
       width:20px;
       margin: -5px 8px -5px 0;
     }

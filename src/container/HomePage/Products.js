@@ -7,7 +7,6 @@ import { useState } from 'react';
 import AddToCart from './AddToCart';
 import { removeCart, removeCartItem as removeCartItemAction, setCarts } from './actions';
 
-
 function Products({ onDetailProduct }) {
   const dispath = useDispatch();
   const [isCarts, setIsCarts] = useState(false);

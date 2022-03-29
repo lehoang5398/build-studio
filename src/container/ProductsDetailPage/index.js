@@ -13,43 +13,45 @@ function DetailProduct({ products, onCloseProduct }) {
 
   const handleClose = () => {
     if (onCloseProduct) {
-      onCloseProduct()
+      onCloseProduct();
     }
   };
   const handleAddToCart = () => {
     const cart = {
       id: products.id,
-      img: products.logo
-    }
+      img: products.logo,
+    };
     console.log(cart.image);
     const action = setCarts(cart);
     dispath(action);
-  }
+  };
   const handeleRemoveCart = (cartId) => {
     dispath(removeCartItem(cartId));
-  } 
+  };
   return (
-    <div className='commonPopUp acti'>
-      <div className='popOverlay'></div>
-      <div className='popHolder'>
-        <div className='popHolder-container'>
-          <div className='popup-header'>
-            <div className='close-Popup'>
-              <button className='btn-close-share' >
-                <BsArrowsFullscreen className='icon-close' />
+    <div className="commonPopUp acti">
+      <div className="popOverlay"></div>
+      <div className="popHolder">
+        <div className="popHolder-container">
+          <div className="popup-header">
+            <div className="close-Popup">
+              <button className="btn-close-share">
+                <BsArrowsFullscreen className="icon-close" />
               </button>
-              <button className='btn-close-share' >
-                <GrAttachment className='icon-close' />
+              <button className="btn-close-share">
+                <GrAttachment className="icon-close" />
               </button>
-              <button onClick={handleClose} className='btn-close' >
-                <IoMdClose className='icon-close' />
+              <button onClick={handleClose} className="btn-close">
+                <IoMdClose className="icon-close" />
               </button>
             </div>
           </div>
-          <BodyProducts
+          <BodyProducts products={products} imageProducts={imageProducts} />
+          <FooterProducts
+            handeleRemoveCart={handeleRemoveCart}
+            handleAddToCart={handleAddToCart}
             products={products}
-            imageProducts={imageProducts} />
-          <FooterProducts handeleRemoveCart = {handeleRemoveCart} handleAddToCart = {handleAddToCart}  products ={products} />
+          />
         </div>
       </div>
     </div>
@@ -59,6 +61,6 @@ function DetailProduct({ products, onCloseProduct }) {
 DetailProduct.propTypes = {
   onCloseProduct: PropTypes.func,
   products: PropTypes.object,
-}
+};
 
 export default DetailProduct;

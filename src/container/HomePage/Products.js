@@ -6,17 +6,21 @@ import PropTypes from 'prop-types';
 import { GrAdd } from 'react-icons/gr';
 import { MdDone } from 'react-icons/md';
 import AddToCart from './AddToCart';
-import { removeCart, removeCartItem as removeCartItemAction, setCarts } from './actions';
+import {
+  removeCart,
+  removeCartItem as removeCartItemAction,
+  setCarts,
+} from './actions';
 
 function Products({ onDetailProduct }) {
   const dispath = useDispatch();
-  const unitMoney = useSelector(state => state.unitMoney.unit);
-  const categoryId = useSelector(state => state.category.categoryId);
-  const products = useSelector(state => state.addToCart.products);
+  const unitMoney = useSelector((state) => state.unitMoney.unit);
+  const categoryId = useSelector((state) => state.category.categoryId);
+  const products = useSelector((state) => state.addToCart.products);
 
   const onClickDetail = (item) => {
     if (onDetailProduct) {
-      onDetailProduct(item)
+      onDetailProduct(item);
     }
   };
 
@@ -37,8 +41,8 @@ function Products({ onDetailProduct }) {
     const cart = {
       id: item.id,
       img: item.logo,
-    }
-    console.log('aaa',cart);
+    };
+    console.log('aaa', cart);
     const action = setCarts(cart);
     dispath(action);
   };
@@ -48,7 +52,7 @@ function Products({ onDetailProduct }) {
   };
 
   const onSelectActions = (item) => {
-    const idex = products.findIndex(p => p.id === item.id)
+    const idex = products.findIndex((p) => p.id === item.id);
     if (idex < 0) {
       handleAddToCart(item);
     } else {
@@ -57,69 +61,80 @@ function Products({ onDetailProduct }) {
   };
 
   const removeCarts = () => {
-    const action = removeCart()
+    const action = removeCart();
     dispath(action);
   };
 
-  const newProducts = categoryId ? dataProducts.filter(category => category.id === categoryId) : dataProducts;
+  const newProducts = categoryId
+    ? dataProducts.filter((category) => category.id === categoryId)
+    : dataProducts;
+
   return (
-    <ul className='product-list'>
+    <ul className="product-list">
       {newProducts.map((item, index) => (
-        <li key={index} className='product-item'>
-          <div className='templateCard'>
+        <li key={index} className="product-item">
+          <div className="templateCard">
             <div onClick={() => onSelectActions(item)}>
-              <div className='product-header'>
-                <img className='product-img' alt='' src={item?.logo} />
-                <div className='title-text'>
+              <div className="product-header">
+                <img className="product-img" alt="" src={item?.logo} />
+                <div className="title-text">
                   {item?.TileText}
                   <span>{item?.name}</span>
                 </div>
-                <div className='actionbx'>
-                  <button className='morebtn'>
-                    {
-                      products.find((x) => x.id === item.id)
-                        ?
-                        <div className='checkbox-add-cart'>
-                          <MdDone />
-                        </div>
-                        :
-                        <GrAdd />
-                    }
+                <div className="actionbx">
+                  <button className="morebtn">
+                    {products.find((x) => x.id === item.id) ? (
+                      <div className="checkbox-add-cart">
+                        <MdDone />
+                      </div>
+                    ) : (
+                      <GrAdd />
+                    )}
                   </button>
                 </div>
               </div>
-              <div className='product-body'>
-                <img className='product-body-img' alt='' src={item?.image} />
-                <div className='product-featureDetail'>
-                  <span className='body-title'>INCLUDED FEATURES</span>
-                  <span className='body-blog'>{item?.features[0]}</span>
-                  <span className='features'>{item?.features}</span>
+              <div className="product-body">
+                <img className="product-body-img" alt="" src={item?.image} />
+                <div className="product-featureDetail">
+                  <span className="body-title">INCLUDED FEATURES</span>
+                  <span className="body-blog">{item?.features[0]}</span>
+                  <span className="features">{item?.features}</span>
                 </div>
               </div>
             </div>
-            <div className='product-footer'>
-              <div className='title-price'>
-                <span className='from'>FROM</span>
-                <div className='pricewithmonth'>
-                  <span className='price'>{checkUnitMoney(item)}</span>
-                  <span className='platForm'>ber<br />platform</span>
+            <div className="product-footer">
+              <div className="title-price">
+                <span className="from">FROM</span>
+                <div className="pricewithmonth">
+                  <span className="price">{checkUnitMoney(item)}</span>
+                  <span className="platForm">
+                    ber
+                    <br />
+                    platform
+                  </span>
                 </div>
               </div>
-              <div className='detail'>
-                <button className='viewDetail'
-                  onClick={() => onClickDetail(item)}>View Details</button>
+              <div className="detail">
+                <button
+                  className="viewDetail"
+                  onClick={() => onClickDetail(item)}
+                >
+                  View Details
+                </button>
               </div>
             </div>
           </div>
         </li>
       ))}
-      {products.length > 0 && <AddToCart products={products} removeCarts={removeCarts} />}
+      {products.length > 0 && (
+        <AddToCart products={products} removeCarts={removeCarts} />
+      )}
     </ul>
   );
 }
 
 Products.propTypes = {
   onDetailProduct: PropTypes.func,
-}
+};
 
 export default Products;

@@ -6,7 +6,9 @@ const products = [
     logo: TitleProduct,
     name: '3D LOOK',
     image: Product,
-    features: ['activity log, Admin Console , Account Creation' & '+ 34 other features'],
+    features: [
+      'activity log, Admin Console , Account Creation' & '+ 34 other features',
+    ],
     price: '$ 27',
     euro: ' € 23k',
     canadian: ' C$ 28k',
@@ -18,7 +20,9 @@ const products = [
     logo: GAG,
     name: '9GAG',
     image: Product,
-    features: ['activity log, Admin Console , Account Creation' & '+ 23 other features'],
+    features: [
+      'activity log, Admin Console , Account Creation' & '+ 23 other features',
+    ],
     price: '$ 350',
     euro: '€ 350k',
     canadian: 'C$ 350k',
@@ -30,12 +34,14 @@ const products = [
     logo: ASOS,
     name: 'ASOS',
     image: Product,
-    features: ['activity log, Admin Console , Account Creation' & '+ 48 other features'],
+    features: [
+      'activity log, Admin Console , Account Creation' & '+ 48 other features',
+    ],
     price: '$ 420',
     euro: '€ 420k',
     canadian: ' C$ 420k',
     aed: ' د.إ 100k',
     categoryId: 3,
   },
-]
+];
 export default products;

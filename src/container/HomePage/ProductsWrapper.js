@@ -16,7 +16,7 @@ function ProductsWrapper() {
   };
 
   const onCloseProduct = () => {
-    setIsOpenProduct(false)
+    setIsOpenProduct(false);
   };
 
   const onSearch = () => {
@@ -24,7 +24,7 @@ function ProductsWrapper() {
   };
 
   const onCloseSearch = () => {
-    setIsOpenSearch(false)
+    setIsOpenSearch(false);
   };
 
   useEffect(() => {
@@ -39,13 +39,15 @@ function ProductsWrapper() {
   }, [isOpenProduct]);
 
   return (
-    <div className='right-sidebar'>
+    <div className="right-sidebar">
       <ProductsChoose onSearch={onSearch} />
-      <div className='container-products'>
+      <div className="container-products">
         <ProductsNavBar />
         <Products onDetailProduct={(item) => onDetailProduct(item)} />
       </div>
-      {isOpenProduct && <DetailProduct products={product} onCloseProduct={onCloseProduct} />}
+      {isOpenProduct && (
+        <DetailProduct products={product} onCloseProduct={onCloseProduct} />
+      )}
       {isOpenSearch && <ModelSearch onCloseSearch={onCloseSearch} />}
     </div>
   );

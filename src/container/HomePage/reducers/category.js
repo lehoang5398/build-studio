@@ -1,8 +1,8 @@
-import { CHECK_CATEGORY } from "../constants";
+import { CHECK_CATEGORY } from '../constants';
 
 const initialState = {
   categoryId: null,
-}
+};
 
 const categoryReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -16,5 +16,5 @@ const categoryReducer = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 export default categoryReducer;

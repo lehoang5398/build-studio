@@ -1,5 +1,5 @@
 const categories = [
-  { categoryitem: 'Business & finance', id: 1, },
+  { categoryitem: 'Business & finance', id: 1 },
   { categoryitem: 'Education', id: 2 },
   { categoryitem: 'Entertainment & music', id: 3 },
   { categoryitem: 'Food & drink', id: 4 },

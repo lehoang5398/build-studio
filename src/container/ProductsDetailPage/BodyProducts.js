@@ -68,22 +68,22 @@ function BodyProducts({ products, imageProducts }) {
           <div className='detailContent'>
             <div className='hideOnMobile'>
               <div className='hide-title'>
-                <img className='hide-image' alt='' src={products.imageTitle} />
-                <h2 className='hide-title-item'>{products.ProductName}</h2>
+                <img className='hide-image' alt='' src={products.logo} />
+                <h2 className='hide-title-item'>{products.name}</h2>
               </div>
               <div className='feauter'>
-                <span className='feauter-item'>{products.features}</span>
+                <span className='feauter-item'>37 features included</span>
               </div>
               <div className='blog-feauter'>
                 <span className='blog-list'>A mobile-first body scanning and measuring technology that provides accurate data-driven size and fit recommendations and photorealistic virtual try-on to help optimize processes, reduce returns while boosting sales, and increasing shopping confidence.
                 </span>
               </div>
               <div className='from-price'>
-                <span className='Price-item'>{products.price}</span>
+                <span className='Price-item'>$26,104.00</span>
               </div>
               <div className='configurableSection'>
                 <div className='title-wrapper'>
-                  {products.platForm} AVAILABLE
+                PLATFORMS AVAILABLE
                 </div>
                 <ul className='includeBox platforms'>
                   <li className='detailRow'>

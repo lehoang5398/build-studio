@@ -1,10 +1,18 @@
 body {
   margin: 0;
-  font-family: rubikregular,Arial,Georgia,serif;
+  font-family: Arial,Georgia,serif;
   font-size: 14px;
   font-weight: 400;
 }
 
-.container {
-  padding: 40px 48px;
+.container-products {
+  padding: 125px 48px;
+}
+.btn {
+  background: #fff;
+  color: #3c3e49;
+  border: 1px solid #dfe0e6;
+  border-radius: 3px;
+  font-size: 13px;
+  font-size: 16px;
 }

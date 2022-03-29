@@ -41,7 +41,7 @@ function ProductsWrapper() {
   return (
     <div className='right-sidebar'>
       <ProductsChoose onSearch={onSearch} />
-      <div className='container'>
+      <div className='container-products'>
         <ProductsNavBar />
         <Products onDetailProduct={(item) => onDetailProduct(item)} />
       </div>

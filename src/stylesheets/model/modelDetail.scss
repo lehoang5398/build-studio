@@ -1,62 +1,88 @@
-.popHolder {
-  z-index: 1000;
+
+.commonPopUp {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  @extend %font;
+  overflow-y: auto;
+  .popOverlay {
+    background: rgba(0,0,0,.14);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+}
+.acti {
+  opacity: 1;
+  z-index: 9999999;
+  display: block;
+}
+.popHolder{
+  transform: translate(-50%,calc(-50% - 0.2px)) scale(1);
   max-width: 1024px;
+  padding: 0;
   height: calc(100% - 100px);
   max-height: 700px;
-  background: #f7fafa;
-  position: fixed;
-  left: 10%;
-  top: 10%;
-  font-size: 14px;
-  font-weight: 400;
-  overflow-y: scroll;
-  .templateDetailPage{
-    font-size: 14px;
-    font-weight: 400;
+  position: absolute;
+  left: 50%;
+  background: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width:100%;
+  z-index: 3;
+  overflow-y: auto;
+  .popHolder-container {
+    display: block;
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
     width: 100%;
-    clear: both;
-    padding: 12px 12px 60px;
-    display: flex;
-    justify-content: space-between;
   }
 }
 .popup-header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  position: -webkit-sticky;
-  position: sticky;
-  background-color: #fff;
-  z-index: 9999;
-  margin-left: -40px;
-  margin-right: -40px;
-  padding: 15px;
-  top: 0;
-  background:#f7fafa;
-  .close-Popup{
-    .btn-close{
-      padding: 4px;
-      margin: 10px 50px 10px 0;
-      width: 30px;
-      height: 30px;
-      border: solid 0px #83889e;
-      border-radius: 50%;
-      background: #ffff;
-    }
-    .btn-close-share{
-      padding: 4px;
-      margin: 10px 10px 0px 0;
-      width: 30px;
-      height: 30px;
-      border: solid 0px #83889e;
-      // border-radius: 50%;
-      background: #ffff;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    position: sticky;
+    background-color: #fff;
+    z-index: 9999;
+    margin-left: -40px;
+    margin-right: -40px;
+    padding: 15px;
+    top: 0;
+    .close-Popup{
+      .btn-close{
+        padding: 4px;
+        margin: 10px 50px 10px 0;
+        width: 30px;
+        height: 30px;
+        color: #3c3e49;
+        border: 1px solid #dfe0e6;
+        border-radius: 50px;
+        background: #ffff;
+      }
+      .btn-close-share{
+        padding: 4px;
+        margin: 10px 10px 0px 0;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #dfe0e6;
+        border-radius: 3px;
+        background: #ffff;
+      }
     }
   }
-}
+
+
+  // -----body-----
 .body-templateDetailPage{
-  padding: 0 40px;
-}
+    padding: 0 40px;
+  }
 .container-page{
   display:flex;
   width: 100%;
@@ -136,14 +162,8 @@
   margin: 0;
   display: flex;
   list-style-type: none;
-  // overflow-x: auto;
   z-index: 1;
   .slider-item {
-    // padding: 12px 0;
-    // width: calc(25% - 6px);
-    // margin: 0 8px 0 0;
-    // border: 1px solid #9b9fb1;
-    // border-radius: 12px;
     .slider-image {
       height: 100px;
       width: 108px;
@@ -174,7 +194,7 @@
   position: relative;
   left: 30%;
   height: calc(100% - 250px);
-  max-height: 370px;
+  max-height: 250px;
 }
 .deviceFrame-vien {
   width: auto;
@@ -206,23 +226,36 @@
     color: #3c3e49;
     display: flex;
     align-items: center;
+    .hide-image{
+      max-height: 40px;
+      width: auto;
+      margin: 0 16px 0 0;
+    }
+    .hide-title-item {
+      font-size: 36px;
+      color: #3c3e49;
+      display: flex;
+      align-items: center;
+      @extend %font;
+    }
 }
-.hide-image{
-  max-height: 40px;
-    width: auto;
-    margin: 0 16px 0 0;
-}
+
 .feauter {
   font-size: 14px;
   margin: 0 0 10px;
   color: #83889e;
+  
+  .feauter-item {
+    @extend %font;
+  }
 }
 .blog-feauter {
   width: 100%;
-    font-size: 13px;
-    line-height: 16px;
-    color: #3c3e49;
-    margin: 0 0 24px;
+  font-size: 16px;
+  line-height: 28px;
+  color: #3c3e49;
+  margin: 0 0 24px;
+  @extend %font;
 }
 .from-price{
   width: 100%;
@@ -234,11 +267,9 @@
   position: relative;
   overflow: hidden;
   .Price-item{
-    font-family: rubikregular,Arial,Georgia,serif;
     font-size: 30px;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-    color: #9b9fb1;
+    color: #000;
+    @extend %font;
   }
 }
 .configurableSection {
@@ -263,7 +294,6 @@
     .imgSection {
       width: 60px;
       margin-bottom: 6px;
-      // width: auto;
       display: block;
     }
     .textSection {
@@ -272,14 +302,14 @@
     line-height: 22px;
     margin: 0;
     padding: 0 0px 0 25px;
-    color: #9b9fb1;
+    @extend %font;
     }
   }
 }
 .includeBox {
   width: 100%;
   border-bottom: 1px solid #dfe0e6;
-  padding: 0px 0 15px;
+  padding: 16px 0 32px;
 }
 .ngcontent-serverapp{
   font-size: 14px;
@@ -318,38 +348,32 @@
     color: #3c3e49;
     line-height: 22px;
     margin: 0;
-    padding-left: 10px;
-    color: #9b9fb1;
+    
   }
 }
-// ----footer--
+// ------footer----
 .sticky-Footer {
-  position: sticky;
-  bottom: 0;
-  z-index: 10000;
-}
-.sticky-bottom-bar {
-  background: #f7fafa;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  z-index: 12;
-  // position: fixed;
-
-  .AddTemplateButton{
-    height: 60px;
-    font-size: 14px;
-    min-width: 170px;
-    display: flex;
-    align-items: center;
-    margin: -1px 0;
-    padding: 0 0 0 37px;
-    background: #00d659;;
+    position: sticky;
+    bottom: 0;
+    z-index: 10000;
   }
-}
-// ------
-.icon-close {
-  width:100%;
-  height: 100%;
-}
+  .sticky-bottom-bar {
+    background: #fff;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+    z-index: 12;
+    .AddTemplateButton{
+      color: #000;
+      height: 60px;
+      font-size: 14px;
+      min-width: 170px;
+      display: flex;
+      align-items: center;
+      margin: -1px 0;
+      padding: 0 0 0 37px;
+      background: #00d659;
+      font-weight: 600;
+    }
+  }

@@ -1,8 +1,10 @@
+/* eslint-disable array-callback-return */
 
 import { useDispatch, useSelector } from 'react-redux';
 import dataProducts from '../HomePage/data/products';
 import PropTypes from 'prop-types';
 import { GrAdd } from 'react-icons/gr';
+import { MdDone } from 'react-icons/md';
 import { useState } from 'react';
 import AddToCart from './AddToCart';
 import { removeCart, removeCartItem as removeCartItemAction, setCarts } from './actions';
@@ -63,7 +65,6 @@ function Products({ onDetailProduct }) {
   };
 
   const newProducts = categoryId ? dataProducts.filter(category => category.id === categoryId) : dataProducts;
-
   return (
     <ul className='product-list'>
       {newProducts.map((item, index) => (
@@ -77,7 +78,17 @@ function Products({ onDetailProduct }) {
                   <span>{item?.name}</span>
                 </div>
                 <div className='actionbx'>
-                  <button className='morebtn'><GrAdd /></button>
+                  <button className='morebtn'>
+                    {
+                      products.find((x) => x.id === item.id)
+                        ?
+                        <div className='checkbox-add-cart'>
+                          <MdDone />
+                        </div>
+                        :
+                        <GrAdd />
+                    }
+                  </button>
                 </div>
               </div>
               <div className='product-body'>

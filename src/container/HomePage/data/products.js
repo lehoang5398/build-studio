@@ -4,7 +4,7 @@ const products = [
   {
     id: 1,
     logo: TitleProduct,
-    name: '3D Look',
+    name: '3D LOOK',
     image: Product,
     features: ['activity log, Admin Console , Account Creation' & '+ 34 other features'],
     price: '$ 27',

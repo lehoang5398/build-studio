@@ -20,7 +20,7 @@ function PriceProduct({currency,onClick ,isCheckBox}) {
               onClick={() => handleClickPrice(item)}
             >{item.Currency}
             </li>
-            <div className={` ${item.id === isCheckBox ? 'hidden': 'block'}`}>
+            <div className={` ${item.id === isCheckBox ? 'hiddens': 'block-hidden'}`}>
                 <RiCheckboxCircleFill/>
             </div>
           </div>

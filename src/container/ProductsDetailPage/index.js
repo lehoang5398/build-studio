@@ -15,24 +15,29 @@ function DetailProduct({ products, onCloseProduct }) {
   };
 
   return (
-    <div className='popHolder'>
-      <div className='popup-header'>
-        <div className='close-Popup'>
-          <button className='btn-close-share' >
-            <BsArrowsFullscreen className='icon-close' />
-          </button>
-          <button className='btn-close-share' >
-            <GrAttachment className='icon-close' />
-          </button>
-          <button onClick={handleClose} className='btn-close' >
-            <IoMdClose className='icon-close' />
-          </button>
+    <div className='commonPopUp acti'>
+      <div className='popOverlay'></div>
+      <div className='popHolder'>
+        <div className='popHolder-container'>
+          <div className='popup-header'>
+            <div className='close-Popup'>
+              <button className='btn-close-share' >
+                <BsArrowsFullscreen className='icon-close' />
+              </button>
+              <button className='btn-close-share' >
+                <GrAttachment className='icon-close' />
+              </button>
+              <button onClick={handleClose} className='btn-close' >
+                <IoMdClose className='icon-close' />
+              </button>
+            </div>
+          </div>
+          <BodyProducts
+            products={products}
+            imageProducts={imageProducts} />
+          <FooterProducts />
         </div>
       </div>
-      <BodyProducts
-        products={products}
-        imageProducts={imageProducts} />
-      <FooterProducts />
     </div>
   );
 }

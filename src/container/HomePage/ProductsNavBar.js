@@ -3,7 +3,7 @@ import React from 'react';
 function ProductsNavBar() {
 
   return (
-    <div className='search-product'>
+    <div className='navbar-product'>
       <ul className='product-menu-list'>
         <li className='product-menu-item'><button>All</button></li>
         <li className='product-menu-item'><button>pro</button></li>

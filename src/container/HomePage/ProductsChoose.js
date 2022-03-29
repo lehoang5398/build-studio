@@ -1,11 +1,7 @@
 import React from 'react';
-import { Search, Arrange } from '../../assets/image';
-// import { AiOutlinePlus } from 'react-icons/ai';
+import { AiOutlinePlus,AiOutlineSearch } from 'react-icons/ai';
+import { BsArrowDownUp } from 'react-icons/bs';
 import PropTypes from 'prop-types';
-
-ProductsChoose.propTypes = {
-  onSearch: PropTypes.func,
-}
 
 function ProductsChoose({ onSearch }) {
   const handleOnClickSearch = () => {
@@ -15,30 +11,34 @@ function ProductsChoose({ onSearch }) {
   };
 
   return (
-    <div className='choose container'>
+    <div className='choose'>
       <h2 className='title-choose'>Choose a base </h2>
       <ul className='choose-list'>
         <li className='choose-item'>
-          <button className='search-btn' type='button' onClick={handleOnClickSearch}>
-            <img className='icon-search' alt='' src={Search} />
+          <button className='search-btn btn' type='button' onClick={handleOnClickSearch}>
+            <AiOutlineSearch/>
           </button>
         </li>
-        <li className='choose-item'>
-        <div className='choose-icon'>
-            {/* <AiOutlinePlus /> */}
-          </div>
+        <li className='choose-item'>  
           <button className='btn-item'>
+          <div className='choose-icon'>
+            <AiOutlinePlus />
+          </div>
             Custom Template
           </button>
         </li>
         <li className='choose-item'>
-          <button className='arrange'>
-            <img className='arrange-img' alt='' src={Arrange} />
+          <button className='arrange btn'>
+            <BsArrowDownUp />
           </button>
         </li>
       </ul>
     </div>
   );
+}
+
+ProductsChoose.propTypes = {
+  onSearch: PropTypes.func,
 }
 
 export default ProductsChoose;

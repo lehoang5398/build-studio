@@ -110,3 +110,12 @@
 .block-hidden {
   display: none;
 }
+// ---respon----
+@media screen and (max-width: 768px) {
+  .nav-list {
+    display: none;
+  }
+  .options-list {
+    display: none;
+  }
+}

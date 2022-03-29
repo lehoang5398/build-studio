@@ -36,3 +36,9 @@
     }
   }
 }
+
+@media screen and (max-width: 1220px) {
+  .left-sidebar {
+    display: none;
+  }
+}

@@ -3,11 +3,6 @@ import { Carousel, Build, Buildo, MayTinh, Categories, VienImg } from '../../ass
 import PropTypes from 'prop-types';
 import Slider from 'react-slick';
 
-BodyProducts.propTypes = {
-  products: PropTypes.object.isRequired,
-  imageProducts: PropTypes.array
-};
-
 function BodyProducts({ products, imageProducts }) {
   const [imageProduct, setImageProduct] = useState({});
 
@@ -140,5 +135,10 @@ function BodyProducts({ products, imageProducts }) {
     </div>
   );
 }
+
+BodyProducts.propTypes = {
+  products: PropTypes.object.isRequired,
+  imageProducts: PropTypes.array
+};
 
 export default BodyProducts;

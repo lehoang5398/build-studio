@@ -33,9 +33,9 @@ function Header() {
 
   useOnClickOutside(priceProductRef, () => handleClickHidden())
   return (
-    <header className='page-header'>
+    <header className='page-header sm:grid-cols-12'>
       <div className='header-content'>
-        <div className='logo'>
+        <div className='logo sm:grid-cols-12'>
           <h1>
             <Link to='/'>
               <img className='logo-img' alt='' src={Logo} />
@@ -65,12 +65,12 @@ function Header() {
               {price.value} <TiArrowSortedDown />
             </button>
             {isOpen && (
-              <ul className={'options-item-Currency'}>
+              <li className={'options-item-Currency'}>
                 <PriceProduct onClick={handleClickMenu}
                   currency={currency}
                   isCheckBox = {isCheckBox}
                 />
-              </ul>)
+              </li>)
             }
           </li>
           <li className='options-item'>

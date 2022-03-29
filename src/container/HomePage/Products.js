@@ -5,13 +5,11 @@ import dataProducts from '../HomePage/data/products';
 import PropTypes from 'prop-types';
 import { GrAdd } from 'react-icons/gr';
 import { MdDone } from 'react-icons/md';
-import { useState } from 'react';
 import AddToCart from './AddToCart';
 import { removeCart, removeCartItem as removeCartItemAction, setCarts } from './actions';
 
 function Products({ onDetailProduct }) {
   const dispath = useDispatch();
-  const [isCarts, setIsCarts] = useState(false);
   const unitMoney = useSelector(state => state.unitMoney.unit);
   const categoryId = useSelector(state => state.category.categoryId);
   const products = useSelector(state => state.addToCart.products);
@@ -36,11 +34,11 @@ function Products({ onDetailProduct }) {
   };
 
   const handleAddToCart = (item) => {
-    setIsCarts(true);
     const cart = {
       id: item.id,
       img: item.logo,
     }
+    console.log('aaa',cart);
     const action = setCarts(cart);
     dispath(action);
   };
@@ -59,7 +57,6 @@ function Products({ onDetailProduct }) {
   };
 
   const removeCarts = () => {
-    setIsCarts(false);
     const action = removeCart()
     dispath(action);
   };
@@ -116,7 +113,7 @@ function Products({ onDetailProduct }) {
           </div>
         </li>
       ))}
-      {isCarts && <AddToCart products={products} removeCarts={removeCarts} />}
+      {products.length > 0 && <AddToCart products={products} removeCarts={removeCarts} />}
     </ul>
   );
 }

@@ -377,3 +377,20 @@
       font-weight: 600;
     }
   }
+.sticky-Footer-remove {
+  position: sticky;
+  bottom: 0;
+  z-index: 10000;
+  .removeTemplateButton {
+    background: #3c3e49;
+    height: 60px;
+    font-size: 14px;
+    min-width: 170px;
+    display: flex;
+    align-items: center;
+    margin: -1px 0;
+    padding: 0 0 0 37px;
+    font-weight: 600;
+    color: #fff;
+  }
+}

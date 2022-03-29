@@ -5,15 +5,29 @@ import { BsArrowsFullscreen } from 'react-icons/bs';
 import FooterProducts from './FooterProducts';
 import imageProducts from './data/imageProducts';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { removeCartItem, setCarts } from '../HomePage/actions';
 
 function DetailProduct({ products, onCloseProduct }) {
+  const dispath = useDispatch();
 
   const handleClose = () => {
     if (onCloseProduct) {
       onCloseProduct()
     }
   };
-
+  const handleAddToCart = () => {
+    const cart = {
+      id: products.id,
+      img: products.logo
+    }
+    console.log(cart.image);
+    const action = setCarts(cart);
+    dispath(action);
+  }
+  const handeleRemoveCart = (cartId) => {
+    dispath(removeCartItem(cartId));
+  } 
   return (
     <div className='commonPopUp acti'>
       <div className='popOverlay'></div>
@@ -35,7 +49,7 @@ function DetailProduct({ products, onCloseProduct }) {
           <BodyProducts
             products={products}
             imageProducts={imageProducts} />
-          <FooterProducts />
+          <FooterProducts handeleRemoveCart = {handeleRemoveCart} handleAddToCart = {handleAddToCart}  products ={products} />
         </div>
       </div>
     </div>

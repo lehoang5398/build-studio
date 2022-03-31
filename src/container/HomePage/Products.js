@@ -11,12 +11,14 @@ import {
   removeCartItem as removeCartItemAction,
   setCarts,
 } from './actions';
+import { useEffect, useState } from 'react';
 
 function Products({ onDetailProduct }) {
   const dispath = useDispatch();
   const unitMoney = useSelector((state) => state.unitMoney.unit);
   const categoryId = useSelector((state) => state.category.categoryId);
   const products = useSelector((state) => state.addToCart.products);
+  const [selectedProducts, setSelectedProducts] = useState([]);
 
   const onClickDetail = (item) => {
     if (onDetailProduct) {
@@ -64,13 +66,20 @@ function Products({ onDetailProduct }) {
     dispath(action);
   };
 
-  const newProducts = categoryId
-    ? dataProducts.filter((category) => category.id === categoryId)
-    : dataProducts;
+  useEffect(() => {
+    let data;
+    if (categoryId.length > 0) {
+      data = categoryId.map((item) => dataProducts[item - 1]);
+      console.log(data);
+      setSelectedProducts(data);
+      return true;
+    }
+    setSelectedProducts(dataProducts);
+  }, [categoryId]);
 
   return (
     <ul className="product-list">
-      {newProducts.map((item, index) => (
+      {selectedProducts.map((item, index) => (
         <li key={index} className="product-item">
           <div className="templateCard">
             <div onClick={() => onSelectActions(item)}>
@@ -96,7 +105,7 @@ function Products({ onDetailProduct }) {
                 <img className="product-body-img" alt="" src={item?.image} />
                 <div className="product-featureDetail">
                   <span className="body-title">INCLUDED FEATURES</span>
-                  <span className="body-blog">{item?.features[0]}</span>
+                  <span className="body-blog">{item?.features}</span>
                   <span className="features">{item?.features}</span>
                 </div>
               </div>

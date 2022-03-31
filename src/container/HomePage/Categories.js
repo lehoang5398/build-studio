@@ -1,13 +1,21 @@
-import { useDispatch } from 'react-redux';
-import { categoryProduct } from './actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { categoryProduct, unSelectProduct } from './actions';
 import PropTypes from 'prop-types';
+import { MdDone } from 'react-icons/md';
 
 function Categories({ categories, cost }) {
   const dispatch = useDispatch();
+  const categoryId = useSelector((state) => state.category.categoryId);
 
   const handleCilckCategory = (data) => {
     const action = categoryProduct(data.id);
-    dispatch(action);
+    const idx = categoryId.findIndex((item) => item === data.id);
+
+    if (idx < 0) {
+      dispatch(action);
+    } else {
+      dispatch(unSelectProduct(data.id));
+    }
   };
 
   return (
@@ -23,12 +31,15 @@ function Categories({ categories, cost }) {
                 onClick={() => handleCilckCategory(item)}
               >
                 <span>{item.categoryitem}</span>
-                <input
-                  type="checkbox"
-                  id="vehicle1"
-                  name="vehicle1"
-                  defaultValue="Bike"
-                />
+                <button className="btn-checkbox">
+                  {categoryId.find((x) => x === item.id) ? (
+                    <div className="checkbox-category">
+                      <MdDone />
+                    </div>
+                  ) : (
+                    ''
+                  )}
+                </button>
               </li>
             ))}
           </ul>

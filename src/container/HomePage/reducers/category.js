@@ -1,16 +1,22 @@
-import { CHECK_CATEGORY } from '../constants';
+import { CHECK_CATEGORY, UNSELECT_PRODUCT } from '../constants';
 
 const initialState = {
-  categoryId: null,
+  categoryId: [],
 };
 
 const categoryReducer = (state = initialState, action) => {
   switch (action.type) {
     case CHECK_CATEGORY: {
-      const newCategoryId = action.payload;
+      state.categoryId.push(action.payload);
       return {
-        ...state,
-        categoryId: newCategoryId,
+        categoryId: [...state.categoryId],
+      };
+    }
+    case UNSELECT_PRODUCT: {
+      const idx = state.categoryId.findIndex((item) => item === action.payload);
+      state.categoryId.splice(idx, 1);
+      return {
+        categoryId: [...state.categoryId],
       };
     }
     default:

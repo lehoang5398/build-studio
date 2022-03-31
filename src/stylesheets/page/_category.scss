@@ -21,6 +21,7 @@
       color: #3c3e49;
     }
     .category-item {
+      position: relative;
       padding: 0 24px;
       font-size: 14px;
       color: #676b7e;
@@ -35,6 +36,26 @@
         color: #3c3e49;
       }
     }
+  }
+}
+.btn-checkbox {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  display: block;
+  width: 18px;
+  height: 18px;
+  transform: translateY(-50%);
+  text-align: center;
+  line-height: 16px;
+  border: 1.5px solid #ecedf0;
+  color: #fff;
+  font-size: 10px;
+  border-radius: 1.5px;
+  font-weight: 700;
+  .checkbox-category {
+    font-family: engineer, Georgia, serif !important;
+    background: #6c00ea;
   }
 }
 

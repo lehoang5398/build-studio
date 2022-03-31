@@ -7,10 +7,10 @@ const initialState = {
 const categoryReducer = (state = initialState, action) => {
   switch (action.type) {
     case CHECK_CATEGORY: {
-      const NewCategoryId = action.payload;
+      const newCategoryId = action.payload;
       return {
         ...state,
-        categoryId: NewCategoryId,
+        categoryId: newCategoryId,
       };
     }
     default:

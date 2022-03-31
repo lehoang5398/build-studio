@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 function Categories({ categories, cost }) {
   const dispatch = useDispatch();
+
   const handleCilckCategory = (data) => {
     const action = categoryProduct(data.id);
     dispatch(action);

@@ -21,7 +21,6 @@ function DetailProduct({ products, onCloseProduct }) {
       id: products.id,
       img: products.logo,
     };
-    console.log(cart.image);
     const action = setCarts(cart);
     dispath(action);
   };

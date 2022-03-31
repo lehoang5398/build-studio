@@ -1,7 +1,7 @@
 .product {
-  display:flex;
+  display: flex;
   padding-top: 64px;
-  width:100%;
+  width: 100%;
 
   .left-sidebar {
     width: 20%;
@@ -15,7 +15,7 @@
       justify-content: space-between;
       padding: 32px 24px 16px;
       border-bottom: 1px solid #ecedf0;
-      font-family: rubikmedium,Arial,Georgia,serif;
+      font-family: rubikmedium, Arial, Georgia, serif;
       font-size: 12px;
       line-height: 20px;
       color: #3c3e49;
@@ -28,10 +28,11 @@
       height: 48px;
       display: flex;
       align-items: center;
-      justify-content: space-between; 
+      justify-content: space-between;
+      cursor: pointer;
       &:hover {
-          background: #f8f9fa;
-          color: #3c3e49;
+        background: #f8f9fa;
+        color: #3c3e49;
       }
     }
   }

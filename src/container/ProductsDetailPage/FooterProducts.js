@@ -10,13 +10,19 @@ function FooterProducts({ products, handleAddToCart, handeleRemoveCart }) {
     }
   };
 
+  function handeleRemoveCartModal(carts, products) {
+    carts.map((item) =>
+      item.id === products.id ? handeleRemoveCart(products.id) : ''
+    );
+  }
+
   return (
     <>
       {carts.find((x) => x.id === products.id) ? (
         <div className="sticky-Footer-remove">
           <div className="sticky-bottom-bar">
             <button
-              onClick={() => handeleRemoveCart(carts[0].id)}
+              onClick={() => handeleRemoveCartModal(carts, products)}
               className="removeTemplateButton"
             >
               Remove tempalte

@@ -42,7 +42,6 @@ function Products({ onDetailProduct }) {
       id: item.id,
       img: item.logo,
     };
-    console.log('aaa', cart);
     const action = setCarts(cart);
     dispath(action);
   };

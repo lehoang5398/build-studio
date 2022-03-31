@@ -4,50 +4,50 @@
   flex-wrap: wrap;
   width: 100%;
   padding-top: 40px;
-  .product-item{
+  .product-item {
     width: calc(33.33% - 24px);
     margin: 20px 24px 24px 0;
   }
 }
 
-.templateCard{
+.templateCard {
   height: 100%;
   padding: 20px 24px 0;
   background: #fff;
   border: 1px solid #dfe0e6;
   border-radius: 3px;
   cursor: pointer;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border: 1px solid #dfe0e6 ;
+    border: 1px solid #dfe0e6;
   }
-  .product-header{
+  .product-header {
     position: relative;
-    display:flex;
+    display: flex;
     padding-bottom: 20px;
-    .product-img{
+    .product-img {
       max-width: 40px;
       width: 40px;
       margin: 0 10px 0 0;
     }
-    .title-text{
+    .title-text {
       width: calc(100% - 50px);
       font-size: 10px;
       line-height: 16px;
       color: #83889e;
       letter-spacing: 1px;
       span {
-        letter-spacing: -.02em;
+        letter-spacing: -0.02em;
         color: #3c3e49;
         font-size: 20px;
         line-height: 28px;
-        font-family: rubikmedium,Arial,Georgia,serif;
+        font-family: rubikmedium, Arial, Georgia, serif;
         display: block;
         margin-top: 2px;
       }
     }
-    .actionbx{
+    .actionbx {
       height: 35px;
       width: 40px;
       font-size: 14px;
@@ -83,7 +83,7 @@
     border-bottom: 1px solid #ecedf0;
     width: 100%;
   }
-  .product-featureDetail{
+  .product-featureDetail {
     margin: 16px 0;
     text-align: left;
     min-height: 60px;
@@ -95,7 +95,7 @@
       display: block;
       margin-bottom: 4px;
     }
-    .body-blog{
+    .body-blog {
       margin: 16px 0;
       text-align: left;
       font-size: 12px;
@@ -103,7 +103,7 @@
       color: #3c3e49;
       display: block;
     }
-    .features{
+    .features {
       margin-top: 4px;
       display: block;
       color: #3c3e49;
@@ -112,8 +112,8 @@
   }
 }
 
-.product-footer{
-  display:flex;
+.product-footer {
+  display: flex;
   justify-content: space-between;
   border-top: 1px solid #ecedf0;
   padding: 0 0 10px 0;
@@ -125,22 +125,22 @@
     color: #83889e;
     letter-spacing: 1px;
   }
-  .pricewithmonth{
+  .pricewithmonth {
     display: flex;
-    .price{
+    .price {
       color: #3c3e49;
       font-size: 18px;
       line-height: 24px;
-      font-family: rubikmedium,Arial,Georgia,serif;
+      font-family: rubikmedium, Arial, Georgia, serif;
       display: block;
       white-space: nowrap;
       text-overflow: ellipsis;
     }
-    .platForm{
+    .platForm {
       font-size: 10px;
-      letter-spacing: .01em;
+      letter-spacing: 0.01em;
       color: #83889e;
-      font-family: rubikregular,Arial,Georgia,serif;
+      font-family: rubikregular, Arial, Georgia, serif;
       font-style: inherit;
       line-height: 11px;
       position: relative;
@@ -150,14 +150,14 @@
   }
 }
 
-.detail{
+.detail {
   padding-top: 16px;
   .viewDetail {
     border-radius: 3px;
     min-height: 40px;
     font-size: 12px;
     line-height: 20px;
-    letter-spacing: -.01em;
+    letter-spacing: -0.01em;
     color: #3c3e49;
     min-width: 131px;
     text-decoration: none;
@@ -177,5 +177,11 @@
   }
 }
 @media screen and (max-width: 768px) {
-  
+  .product-item {
+    max-width: 100%;
+    display: contents;
+  }
+  .templateCard {
+    margin-bottom: 15px;
+  }
 }

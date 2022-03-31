@@ -4,6 +4,7 @@ import {
   CHECK_UNIT_MONEY,
   REMOVE_CART,
   REMOVE_CART_ITEM,
+  UNSELECT_PRODUCT
 } from './constants';
 
 export const unitMoney = (data) => {
@@ -17,6 +18,13 @@ export const categoryProduct = (data) => {
   return {
     type: CHECK_CATEGORY,
     payload: data,
+  };
+};
+
+export const unSelectProduct = (id) => {
+  return {
+    type: UNSELECT_PRODUCT,
+    payload: id,
   };
 };
 

@@ -1,13 +1,20 @@
-import { useDispatch } from 'react-redux';
-import { categoryProduct } from './actions';
+import { useDispatch,useSelector } from 'react-redux';
+import { categoryProduct,unSelectProduct } from './actions';
 import PropTypes from 'prop-types';
 
 function Categories({ categories, cost }) {
   const dispatch = useDispatch();
+  const categoryId = useSelector((state) => state.category.categoryId);
 
   const handleCilckCategory = (data) => {
     const action = categoryProduct(data.id);
-    dispatch(action);
+    const idx = categoryId.findIndex(item => item === data.id)
+
+    if(idx < 0) {
+      dispatch(action);
+    }else{
+       dispatch(unSelectProduct(data.id))
+    }
   };
 
   return (

@@ -1,0 +1,16 @@
+@mixin columns($col-Max) {
+  @for $i from 1 through $col-Max {
+    .col-#{$i} {
+      width: (($i/($col-Max)) * 100%);
+      padding: 0 10px;
+    }
+  }
+}
+@mixin responsive($col-Max, $screen-size) {
+  @for $i from 1 through $col-Max {
+    .col-#{$screen-size}-#{$i} {
+      width: (($i/($col-Max)) * 100%);
+      padding: 0 4px;
+    }
+  }
+}

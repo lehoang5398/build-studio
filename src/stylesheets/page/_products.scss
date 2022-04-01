@@ -169,11 +169,18 @@
 }
 
 @media screen and (max-width: 1220px) {
+  .product-item {
+    width: calc(50% - 24px) !important;
+    margin: 20px 24px 24px 0;
+  }
   .right-sidebar {
     width: 100%;
   }
   .container-products {
     width: 100%;
+  }
+  .add-to-cart {
+    width: 100% !important;
   }
 }
 @media screen and (max-width: 768px) {

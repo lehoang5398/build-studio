@@ -7,7 +7,8 @@ const products = [
     name: '3D LOOK',
     image: Product,
     features: [
-      'activity log, Admin Console , Account Creation' & '+ 34 other features',
+      'activity log Admin Console Account Creation',
+      '+ 34 other features',
     ],
     price: '$ 27',
     euro: ' € 23k',
@@ -21,7 +22,8 @@ const products = [
     name: '9GAG',
     image: Product,
     features: [
-      'activity log, Admin Console , Account Creation' & '+ 23 other features',
+      'activity log Admin Console Account Creation',
+      '+ 23 other features',
     ],
     price: '$ 350',
     euro: '€ 350k',
@@ -35,7 +37,8 @@ const products = [
     name: 'ASOS',
     image: Product,
     features: [
-      'activity log, Admin Console , Account Creation' & '+ 48 other features',
+      'Download Options Forgot Password Account',
+      '+ 48 other features',
     ],
     price: '$ 420',
     euro: '€ 420k',
@@ -44,4 +47,5 @@ const products = [
     categoryId: 3,
   },
 ];
+
 export default products;

@@ -1,6 +1,5 @@
-/* eslint-disable array-callback-return */
-
 import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 import dataProducts from '../HomePage/data/products';
 import PropTypes from 'prop-types';
 import { GrAdd } from 'react-icons/gr';
@@ -11,13 +10,14 @@ import {
   removeCartItem as removeCartItemAction,
   setCarts,
 } from './actions';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 function Products({ onDetailProduct }) {
   const dispath = useDispatch();
   const unitMoney = useSelector((state) => state.unitMoney.unit);
   const categoryId = useSelector((state) => state.category.categoryId);
   const products = useSelector((state) => state.addToCart.products);
+
   const [selectedProducts, setSelectedProducts] = useState([]);
 
   const onClickDetail = (item) => {
@@ -67,8 +67,9 @@ function Products({ onDetailProduct }) {
   };
 
   useEffect(() => {
+    console.log(categoryId);
     let data;
-    if (categoryId.length > 0) {
+    if (categoryId?.length > 0) {
       data = categoryId.map((item) => dataProducts[item - 1]);
       console.log(data);
       setSelectedProducts(data);
@@ -105,8 +106,8 @@ function Products({ onDetailProduct }) {
                 <img className="product-body-img" alt="" src={item?.image} />
                 <div className="product-featureDetail">
                   <span className="body-title">INCLUDED FEATURES</span>
-                  <span className="body-blog">{item?.features}</span>
-                  <span className="features">{item?.features}</span>
+                  <span className="body-blog">{item?.features[0]}</span>
+                  <span className="features">{item?.features[1]}</span>
                 </div>
               </div>
             </div>

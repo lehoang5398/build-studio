@@ -1,7 +1,7 @@
 import React from 'react';
 import { RiCheckboxCircleFill } from 'react-icons/ri';
+import PropTypes from 'prop-types';
 
-// eslint-disable-next-line react/prop-types
 function PriceProduct({ currency, onClick, isCheckBox }) {
   const handleClickPrice = (item) => {
     if (!currency) return;
@@ -33,4 +33,10 @@ function PriceProduct({ currency, onClick, isCheckBox }) {
     </div>
   );
 }
+PriceProduct.prototype = {
+  currency: PropTypes.array,
+  onClick: PropTypes.func,
+  isCheckBox: PropTypes.number,
+};
+
 export default PriceProduct;

@@ -33,6 +33,7 @@ function PriceProduct({ currency, onClick, isCheckBox }) {
     </div>
   );
 }
+
 PriceProduct.prototype = {
   currency: PropTypes.array,
   onClick: PropTypes.func,

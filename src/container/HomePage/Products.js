@@ -69,7 +69,6 @@ function Products({ onDetailProduct }) {
     let data;
     if (categoryId?.length > 0) {
       data = categoryId.map((item) => dataProducts[item - 1]);
-      console.log(data);
       setSelectedProducts(data);
       return true;
     }

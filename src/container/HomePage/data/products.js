@@ -37,7 +37,7 @@ const products = [
     name: 'ASOS',
     image: Product,
     features: [
-      'Download Options Forgot Password Account',
+      'Download Options Forgot Password',
       '+ 48 other features',
     ],
     price: '$ 420',

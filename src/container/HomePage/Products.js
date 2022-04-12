@@ -117,7 +117,6 @@ function Products({ onDetailProduct }) {
                   <span className="platForm">
                     ber
                     <br />
-                    platform
                   </span>
                 </div>
               </div>

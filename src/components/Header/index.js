@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef ,useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { TiArrowSortedDown } from 'react-icons/ti';
 import { useDispatch } from 'react-redux';
@@ -7,10 +7,12 @@ import PriceProduct from './Currency';
 import { unitMoney } from '../../container/HomePage/actions';
 import currency from './data/currencies';
 import useOnClickOutside from '../../utils/UseOnClickOutside';
+import SignIn from './SignIn';
 
 function Header() {
   const [isOpen, setOpen] = useState(false);
   const [price, setPrice] = useState({ value: 'USD' });
+  const [isSignIn, setSignIn ] = useState(false);
   const [isCheckBox, setIsCheckBox] = useState(1);
   const dispath = useDispatch();
   const priceProductRef = useRef(null);
@@ -31,7 +33,26 @@ function Header() {
     setIsCheckBox(item.id);
   };
 
+  const handeleClickSignIn = () => {
+    setSignIn(true);
+  }
+  const handleCloseSignIn = () => {
+    setSignIn(false)
+  }
+
   useOnClickOutside(priceProductRef, () => handleClickHidden());
+
+  useEffect(() => {
+    if (isSignIn) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isSignIn]);
+
   return (
     <header className="page-header sm:grid-cols-12">
       <div className="header-content">
@@ -79,9 +100,10 @@ function Header() {
             )}
           </li>
           <li className="options-item">
-            <button type="button" className="options-button">
+            <button onClick = {handeleClickSignIn} type="button" className="options-button">
               Sign In
             </button>
+            {isSignIn && (<SignIn handleCloseSignIn = {handleCloseSignIn}/>)}
           </li>
         </ul>
       </div>

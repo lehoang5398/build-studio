@@ -66,7 +66,6 @@ function Products({ onDetailProduct }) {
   };
 
   useEffect(() => {
-    console.log(categoryId);
     let data;
     if (categoryId?.length > 0) {
       data = categoryId.map((item) => dataProducts[item - 1]);

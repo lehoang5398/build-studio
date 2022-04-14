@@ -1,1 +1,2 @@
 export const REGISTER = 'REGISTER';
+export const LOGIN_SUCCEEDED ='LOGIN_SUCCEEDED';

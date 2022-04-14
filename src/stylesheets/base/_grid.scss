@@ -1,4 +1,4 @@
-@include columns($col-Max);
+// @include columns($col-Max);
 @media only screen and (min-width: 1025px) {
   .choose {
     .choose-list {
@@ -7,9 +7,9 @@
   }
 }
 @media (max-width: 576px) {
-  @include responsive($col-Max, sm);
+  // @include responsive($col-Max, sm);
 }
 
 @media (max-width: 768px) {
-  @include responsive($col-Max, md);
+  // @include responsive($col-Max, md);
 }

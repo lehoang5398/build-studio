@@ -1,13 +1,21 @@
-import { CHECK_CATEGORY, UNSELECT_PRODUCT } from '../constants';
+import { LOGIN_SUCCEEDED } from '../constants';
 
 const initialState = {
-  categoryId: [],
+  token: localStorage.getItem('token'),
+  user: {},
+  error: false
 };
 
-const signIn = (state = initialState, action) => {
+const loginReducer = (state = initialState, action) => {
   switch (action.type) {
-    default:
-      return state;
+    case LOGIN_SUCCEEDED: {
+    
+      return {
+       ...state,
+      };
+    }
+    default :   
+    return state;
   }
 };
-export default signIn;
+export default loginReducer;

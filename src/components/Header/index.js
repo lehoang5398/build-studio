@@ -1,20 +1,21 @@
-import React, { useState, useRef ,useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
 import { TiArrowSortedDown } from 'react-icons/ti';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { Logo } from '../../assets/image';
-import PriceProduct from './Currency';
 import { unitMoney } from '../../container/HomePage/actions';
-import currency from './data/currencies';
 import useOnClickOutside from '../../utils/UseOnClickOutside';
+import PriceProduct from './Currency';
+import currency from './data/currencies';
 import SignIn from './SignIn';
 
 function Header() {
+  const dispath = useDispatch();
+  const account_current = useSelector((state) => state.user.user);
   const [isOpen, setOpen] = useState(false);
   const [price, setPrice] = useState({ value: 'USD' });
-  const [isSignIn, setSignIn ] = useState(false);
+  const [isSignIn, setSignIn] = useState(false);
   const [isCheckBox, setIsCheckBox] = useState(1);
-  const dispath = useDispatch();
   const priceProductRef = useRef(null);
 
   const handleClickHidden = () => {
@@ -38,6 +39,10 @@ function Header() {
   }
   const handleCloseSignIn = () => {
     setSignIn(false)
+  }
+
+  function LogOut() {
+    console.log('vào đây');
   }
 
   useOnClickOutside(priceProductRef, () => handleClickHidden());
@@ -99,12 +104,28 @@ function Header() {
               </li>
             )}
           </li>
-          <li className="options-item">
-            <button onClick = {handeleClickSignIn} type="button" className="options-button">
-              Sign In
-            </button>
-            {isSignIn && (<SignIn handleCloseSignIn = {handleCloseSignIn}/>)}
-          </li>
+          {
+            account_current.status
+              ?
+              (
+                <li className="options-item">
+                  <button onClick={LogOut} type="button" className="options-button">
+                    Log Out
+                  </button>
+                </li>
+              )
+              :
+              (
+                <>
+                  <li className="options-item">
+                    <button onClick={handeleClickSignIn} type="button" className="options-button">
+                      Sign In
+                    </button>
+                    {isSignIn && (<SignIn handleCloseSignIn={handleCloseSignIn} />)}
+                  </li>
+                </>
+              )
+          }
         </ul>
       </div>
     </header>

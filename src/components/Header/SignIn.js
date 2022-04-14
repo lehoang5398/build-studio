@@ -1,17 +1,39 @@
 import React, { useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { login } from './action';
 
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+
+const schema = yup.object().shape({
+  email: yup.string().email().required('Please enter your email !'),
+  password: yup
+    .string()
+    .min(8)
+    .max(15)
+    .required('Please enter your password !')
+    .matches(
+      '(?=.*[0-9])(?=.*?[A-Z])',
+      'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case CharacterPassword should include at least one uppercase, one numeric value !',
+    ),
+});
 
 function SignIn({ handleCloseSignIn }) {
   const [isSignUp, setSignUp] = useState(true);
+
   const {
     register,
     handleSubmit,
-    watch,
+    reset,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const dispatch = useDispatch();
 
   const handleClose = () => {
     if (handleCloseSignIn) {
@@ -27,10 +49,10 @@ function SignIn({ handleCloseSignIn }) {
   };
 
   function handleLogin(data) {
-    console.log(data);
+    dispatch(login(data));
+    handleClose();
+    reset();
   }
-
-  console.log(errors);
 
   return (
     <div className="commonPopUp acti sign">
@@ -54,25 +76,25 @@ function SignIn({ handleCloseSignIn }) {
                 <label className="sign-title">
                   Email:
                   <input
-                    className="input-sign-in"
-                    type="text"
+                    className="input-sign-in mt-3"
+                    type="email"
                     name="email"
-                    {...register('email', { required: 'Please enter email!' })}
+                    placeholder="Enter your email..."
+                    {...register('email')}
                   />
                 </label>
-                <span>{errors.email && errors.email.message}</span>
+                <p className="my-4 text-red-500">{errors.email && errors.email.message}</p>
                 <label className="sign-title">
                   Password:
                   <input
-                    className="input-sign-in"
+                    className="input-sign-in mt-3"
                     type="password"
                     name="password"
-                    {...register('password', {
-                      required: 'Please enter password!',
-                    })}
+                    placeholder="Enter your password..."
+                    {...register('password')}
                   />
                 </label>
-                <span>{errors.password && errors.password.message}</span>
+                <p className="my-4 text-red-500">{errors.password && errors.password.message}</p>
                 <button className="btn btn-sign-in" type="submit">
                   Sign In
                 </button>
@@ -84,6 +106,7 @@ function SignIn({ handleCloseSignIn }) {
             </div>
           ) : (
             <div className="sign-in">
+              {/* chỗ này tạo ra component Sign Up mới đúng nha */}
               <h3 className="title-sign-in">SIGN UP</h3>
               <form className="form-sign-in">
                 <label className="sign-title">
@@ -116,6 +139,7 @@ function SignIn({ handleCloseSignIn }) {
 
 SignIn.propTypes = {
   handleCloseSignIn: PropTypes.func,
+  dispatch: PropTypes.func,
 };
 
 export default SignIn;

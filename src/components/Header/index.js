@@ -12,6 +12,7 @@ import SignIn from './SignIn';
 function Header() {
   const dispath = useDispatch();
   const account_current = useSelector((state) => state.user.user);
+  console.log(account_current);
   const [isOpen, setOpen] = useState(false);
   const [price, setPrice] = useState({ value: 'USD' });
   const [isSignIn, setSignIn] = useState(false);
@@ -105,7 +106,7 @@ function Header() {
             )}
           </li>
           {
-            account_current.status
+            account_current.status && account_current !== null && account_current !== undefined
               ?
               (
                 <li className="options-item">

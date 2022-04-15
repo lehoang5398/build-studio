@@ -1,8 +1,8 @@
-// import toast from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { call, delay, takeLatest, put } from 'redux-saga/effects';
 import RepositoryFactory from '../../../api/RepositoryFactory';
 import { LOGIN, LOGOUT } from '../constants';
-import { setUser } from '../action';
+import { setUser, setAccessToken, setRefreshToken } from '../action';
 
 const AuthRepository = RepositoryFactory.get('auth');
 
@@ -14,21 +14,30 @@ function* signIn(payload) {
       email,
       password,
     });
-    yield put(setUser(response));
-    // toast.success('Login is Success !');
+    yield put(setUser(response?.user));
+    yield put(setAccessToken(response?.tokens?.access));
+    yield put(setRefreshToken(response?.tokens?.refresh));
+    toast.success('Login is Success !');
   } catch (error) {
     console.log(error, 'bị chửi');
-    // toast.error('Wrong Email or Password !');
+    toast.error('Wrong Email or Password !');
   }
 }
 
-function* signOut(payload) {
+function* signOut(refresh) {
   try {
-    const refreshToken = payload.payload;
+    // const refreshToken = yield select(useSelector((state) => state.accessToken))
+    const { refreshToken } = refresh.refreshToken;
+
     yield delay(200);
     yield call(AuthRepository.logout, {
       refreshToken,
     });
+    
+    yield put(setUser({}));
+    yield put(setAccessToken({token:{}}));
+    yield put(setRefreshToken({token:{}}));
+    // window.location.reload();
   } catch (error) {
     console.log('fail');
   }

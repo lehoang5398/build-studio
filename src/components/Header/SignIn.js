@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -17,7 +17,7 @@ const schema = yup.object().shape({
     .required('Please enter your password !')
     .matches(
       '(?=.*[0-9])(?=.*?[A-Z])',
-      'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case CharacterPassword should include at least one uppercase, one numeric value !',
+      'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case CharacterPassword should include at least one uppercase, one numeric value !'
     ),
 });
 
@@ -28,11 +28,13 @@ function SignIn({ handleCloseSignIn }) {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
-
+  const password = useRef({});
+  password.current = watch('password', '');
   const dispatch = useDispatch();
 
   const handleClose = () => {
@@ -43,15 +45,20 @@ function SignIn({ handleCloseSignIn }) {
 
   const openSignUp = () => {
     setSignUp(false);
+    reset();
   };
   const openSignIn = () => {
     setSignUp(true);
+    reset();
   };
 
   function handleLogin(data) {
     dispatch(login(data));
     handleClose();
-    // reset();
+    reset();
+  }
+  function handleRegister(data) {
+    console.log('handleRegister');
   }
 
   return (
@@ -83,7 +90,9 @@ function SignIn({ handleCloseSignIn }) {
                     {...register('email')}
                   />
                 </label>
-                <p className="my-4 text-red-500">{errors.email && errors.email.message}</p>
+                <p className="my-4 text-red-500">
+                  {errors.email && errors.email.message}
+                </p>
                 <label className="sign-title">
                   Password:
                   <input
@@ -94,7 +103,9 @@ function SignIn({ handleCloseSignIn }) {
                     {...register('password')}
                   />
                 </label>
-                <p className="my-4 text-red-500">{errors.password && errors.password.message}</p>
+                <p className="my-4 text-red-500">
+                  {errors.password && errors.password.message}
+                </p>
                 <button className="btn btn-sign-in" type="submit">
                   Sign In
                 </button>
@@ -108,19 +119,67 @@ function SignIn({ handleCloseSignIn }) {
             <div className="sign-in">
               {/* chỗ này tạo ra component Sign Up mới đúng nha */}
               <h3 className="title-sign-in">SIGN UP</h3>
-              <form className="form-sign-in">
+              <form
+                className="form-sign-in"
+                onSubmit={handleSubmit(handleRegister)}
+              >
                 <label className="sign-title">
                   Name:
-                  <input className="input-sign-in" type="text" name="name" />
+                  <input
+                    className="input-sign-in mt-3"
+                    type="name"
+                    name="name"
+                    placeholder="Enter your name..."
+                    {...register('name')}
+                  />
                 </label>
+                <p className="my-4 text-red-500">
+                  {errors.name && errors.name.message}
+                </p>
                 <label className="sign-title">
                   Email:
-                  <input className="input-sign-in" type="text" name="name" />
+                  <input
+                    className="input-sign-in mt-3"
+                    type="email"
+                    name="email"
+                    placeholder="Enter your emai..."
+                    {...register('email')}
+                  />
+                  <p className="my-4 text-red-500">
+                    {errors.email && errors.email.message}
+                  </p>
                 </label>
                 <label className="sign-title">
                   Password:
-                  <input className="input-sign-in" type="text" name="name" />
+                  <input
+                    className="input-sign-in mt-3"
+                    type="password"
+                    name="password"
+                    placeholder="Enter your password..."
+                    {...register('password')}
+                    // ref={register({
+                    //   // required: 'You must specify a password',
+                    // })}
+                  />
                 </label>
+                <p className="my-4 text-red-500">
+                  {errors.password && errors.password.message}
+                </p>
+                <label className="sign-title">
+                  Repeat password:
+                  <input
+                    className="input-sign-in mt-3"
+                    type="password"
+                    name="password_repeat"
+                    placeholder="Enter your password..."
+                    {...register(
+                     'password'
+                    )}
+                  />
+                </label>
+                <p className="my-4 text-red-500">
+                  {errors.password && errors.password.message}
+                </p>
                 <button className="btn btn-sign-in" type="submit">
                   Sign Up
                 </button>

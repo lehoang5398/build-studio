@@ -1,5 +1,5 @@
-/* eslint-disable no-fallthrough */
-import { LOGOUT, SET_USER } from '../constants';
+
+import { SET_REFRESH_TOKEN, SET_USER, SET_ACCESS_TOKEN } from '../constants';
 
 const initialData = {
   accessToken: localStorage.getItem('ACCESS_TOKEN'),
@@ -8,7 +8,7 @@ const initialData = {
 };
 
 const initialState = {
-  user: initialData.user ? JSON.parse(initialData.user) : { status: false },
+  user: initialData.user ? JSON.parse(initialData.user) : {},
   accessToken: initialData.accessToken
     ? JSON.parse(initialData.accessToken)
     : {},
@@ -19,24 +19,23 @@ const initialState = {
 
 const loginReducer = (state = initialState, action) => {
   switch (action.type) {
+   
     case SET_USER:
-      state.user = {
-        ...action.user.user,
-        status: true,
-      };
-      state.accessToken = action.user.tokens.access;
-      state.refreshToken = action.user.tokens.refresh;
+      state.user = action.user;
       localStorage.setItem('USER', JSON.stringify(state.user));
-      localStorage.setItem('ACCESS_TOKEN', JSON.stringify(state.accessToken));
+      return state;
+    case SET_REFRESH_TOKEN:
+      console.log("acctione",action);
+      console.log("stae",state);
+
+      state.refreshToken = action.refresh.token;
       localStorage.setItem('REFRESH_TOKEN', JSON.stringify(state.refreshToken));
       return state;
-    case LOGOUT:
-      localStorage.removeItem("USER");
-      localStorage.removeItem("ACCESS_TOKEN");
-      localStorage.removeItem("REFRESH_TOKEN");
-      state.user = {
-        status: false,
-      }
+    case SET_ACCESS_TOKEN:
+       console.log("acctione",action);
+      console.log("stae",state);
+      state.accessToken = action.access.token;
+      localStorage.setItem('ACCESS_TOKEN', JSON.stringify(state.accessToken));
       return state;
     default:
       return state;

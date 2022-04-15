@@ -1,4 +1,4 @@
-// import { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import HomePage from './container/HomePage';
@@ -11,7 +11,7 @@ function App() {
       <Header />
       <HomePage />
       <Footer />
-      {/* <Toaster /> */}
+      <Toaster />
     </div>
   );
 }

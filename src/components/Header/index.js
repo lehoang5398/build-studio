@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { TiArrowSortedDown } from 'react-icons/ti';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { object } from 'yup';
+
 import { Logo } from '../../assets/image';
 import { unitMoney } from '../../container/HomePage/actions';
 import useOnClickOutside from '../../utils/UseOnClickOutside';

@@ -7,6 +7,7 @@ import { login } from './action';
 
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+import Register from './Register';
 
 const schema = yup.object().shape({
   email: yup.string().email().required('Please enter your email !'),
@@ -116,79 +117,7 @@ function SignIn({ handleCloseSignIn }) {
               </div>
             </div>
           ) : (
-            <div className="sign-in">
-              {/* chỗ này tạo ra component Sign Up mới đúng nha */}
-              <h3 className="title-sign-in">SIGN UP</h3>
-              <form
-                className="form-sign-in"
-                onSubmit={handleSubmit(handleRegister)}
-              >
-                <label className="sign-title">
-                  Name:
-                  <input
-                    className="input-sign-in mt-3"
-                    type="name"
-                    name="name"
-                    placeholder="Enter your name..."
-                    {...register('name')}
-                  />
-                </label>
-                <p className="my-4 text-red-500">
-                  {errors.name && errors.name.message}
-                </p>
-                <label className="sign-title">
-                  Email:
-                  <input
-                    className="input-sign-in mt-3"
-                    type="email"
-                    name="email"
-                    placeholder="Enter your emai..."
-                    {...register('email')}
-                  />
-                  <p className="my-4 text-red-500">
-                    {errors.email && errors.email.message}
-                  </p>
-                </label>
-                <label className="sign-title">
-                  Password:
-                  <input
-                    className="input-sign-in mt-3"
-                    type="password"
-                    name="password"
-                    placeholder="Enter your password..."
-                    {...register('password')}
-                    // ref={register({
-                    //   // required: 'You must specify a password',
-                    // })}
-                  />
-                </label>
-                <p className="my-4 text-red-500">
-                  {errors.password && errors.password.message}
-                </p>
-                <label className="sign-title">
-                  Repeat password:
-                  <input
-                    className="input-sign-in mt-3"
-                    type="password"
-                    name="password_repeat"
-                    placeholder="Enter your password..."
-                    {...register(
-                     'password'
-                    )}
-                  />
-                </label>
-                <p className="my-4 text-red-500">
-                  {errors.password && errors.password.message}
-                </p>
-                <button className="btn btn-sign-in" type="submit">
-                  Sign Up
-                </button>
-              </form>
-              <div className="footer-sign-in">
-                "Don't have an account?"
-                <span onClick={openSignIn}>Sign In</span>
-              </div>
-            </div>
+            <Register/>
           )}
         </div>
       </div>

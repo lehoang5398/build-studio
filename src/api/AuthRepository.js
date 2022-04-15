@@ -15,4 +15,8 @@ export default {
       email,
       password,
     }),
+  logout: ({refreshToken}) =>
+  AxiosClient.post(`${resource}/logout`, {
+    refreshToken,
+  })
 };

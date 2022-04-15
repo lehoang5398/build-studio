@@ -6,6 +6,8 @@ const AxiosClient = Axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
+  // paramsSerializer: (params) => queryString.stringify(params)
+
 });
 
 AxiosClient.interceptors.request.use(

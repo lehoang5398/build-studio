@@ -1,5 +1,5 @@
 /* eslint-disable no-fallthrough */
-import { SET_USER } from '../constants';
+import { LOGOUT, SET_USER } from '../constants';
 
 const initialData = {
   accessToken: localStorage.getItem('ACCESS_TOKEN'),
@@ -17,7 +17,7 @@ const initialState = {
     : {},
 };
 
-const signIn = (state = initialState, action) => {
+const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_USER:
       state.user = {
@@ -27,17 +27,19 @@ const signIn = (state = initialState, action) => {
       state.accessToken = action.user.tokens.access;
       state.refreshToken = action.user.tokens.refresh;
       localStorage.setItem('USER', JSON.stringify(state.user));
-      localStorage.setItem(
-        'ACCESS_TOKEN',
-        JSON.stringify(state.accessToken),
-      );
-      localStorage.setItem(
-        'REFRESH_TOKEN',
-        JSON.stringify(state.refreshToken),
-      );
+      localStorage.setItem('ACCESS_TOKEN', JSON.stringify(state.accessToken));
+      localStorage.setItem('REFRESH_TOKEN', JSON.stringify(state.refreshToken));
+      return state;
+    case LOGOUT:
+      localStorage.removeItem("USER");
+      localStorage.removeItem("ACCESS_TOKEN");
+      localStorage.removeItem("REFRESH_TOKEN");
+      state.user = {
+        status: false,
+      }
       return state;
     default:
       return state;
   }
 };
-export default signIn;
+export default loginReducer;

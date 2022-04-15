@@ -51,7 +51,7 @@ function SignIn({ handleCloseSignIn }) {
   function handleLogin(data) {
     dispatch(login(data));
     handleClose();
-    reset();
+    // reset();
   }
 
   return (

@@ -1,9 +1,9 @@
-import Header from './components/Header';
+// import { Toaster } from 'react-hot-toast';
 import Footer from './components/Footer';
-import './stylesheets/index.scss';
-import './stylesheets/index.css';
+import Header from './components/Header';
 import HomePage from './container/HomePage';
-import { Toaster } from 'react-hot-toast';
+import './stylesheets/index.css';
+import './stylesheets/index.scss';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Header />
       <HomePage />
       <Footer />
-      <Toaster />
+      {/* <Toaster /> */}
     </div>
   );
 }

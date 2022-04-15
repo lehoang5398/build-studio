@@ -1,8 +1,4 @@
-import {
-  REGISTER,
-  LOGIN,
-  SET_USER,
-} from './constants';
+import { REGISTER, LOGIN, SET_USER, LOGOUT, SET_LOGOUT } from './constants';
 
 export const register = (data) => {
   return {
@@ -12,13 +8,25 @@ export const register = (data) => {
 };
 
 export const login = (payload) => {
+  console.log(payload);
   return {
     type: LOGIN,
     payload,
   };
 };
 
-export const setUser = (user) => ({
-  type: SET_USER,
-  user,
-});
+export const setUser = (user) => {
+  return {
+    type: SET_USER,
+    user,
+  };
+};
+
+export const logout = (payload) => {
+  return {
+    type: LOGOUT,
+    payload,
+  };
+};
+
+

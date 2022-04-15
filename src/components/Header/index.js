@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Logo } from '../../assets/image';
 import { unitMoney } from '../../container/HomePage/actions';
 import useOnClickOutside from '../../utils/UseOnClickOutside';
+import { logout } from './action';
 import PriceProduct from './Currency';
 import currency from './data/currencies';
 import SignIn from './SignIn';
@@ -12,7 +13,6 @@ import SignIn from './SignIn';
 function Header() {
   const dispath = useDispatch();
   const account_current = useSelector((state) => state.user.user);
-  console.log(account_current);
   const [isOpen, setOpen] = useState(false);
   const [price, setPrice] = useState({ value: 'USD' });
   const [isSignIn, setSignIn] = useState(false);
@@ -37,13 +37,18 @@ function Header() {
 
   const handeleClickSignIn = () => {
     setSignIn(true);
-  }
+  };
   const handleCloseSignIn = () => {
-    setSignIn(false)
-  }
+    setSignIn(false);
+  };
 
-  function LogOut() {
-    console.log('vào đây');
+  function SignOut() {
+    const token = localStorage.getItem('REFRESH_TOKEN')
+      ? JSON.parse(localStorage.getItem('REFRESH_TOKEN'))
+      : {};
+
+    const refreshToken = { refreshToken: token.token };
+    dispath(logout(refreshToken));
   }
 
   useOnClickOutside(priceProductRef, () => handleClickHidden());
@@ -59,6 +64,7 @@ function Header() {
     };
   }, [isSignIn]);
 
+  // const isLogin = localStorage.getItem('ACCESS_TOKEN') ? JSON.parse(localStorage.getItem('ACCESS_TOKEN')): {};
   return (
     <header className="page-header sm:grid-cols-12">
       <div className="header-content">
@@ -105,28 +111,32 @@ function Header() {
               </li>
             )}
           </li>
-          {
-            account_current.status && account_current !== null && account_current !== undefined
-              ?
-              (
-                <li className="options-item">
-                  <button onClick={LogOut} type="button" className="options-button">
-                    Log Out
-                  </button>
-                </li>
-              )
-              :
-              (
-                <>
-                  <li className="options-item">
-                    <button onClick={handeleClickSignIn} type="button" className="options-button">
-                      Sign In
-                    </button>
-                    {isSignIn && (<SignIn handleCloseSignIn={handleCloseSignIn} />)}
-                  </li>
-                </>
-              )
-          }
+          {account_current.status &&
+          account_current !== null &&
+          account_current !== undefined ? (
+            <li className="options-item">
+              <button
+                onClick={SignOut}
+                type="button"
+                className="options-button"
+              >
+                Log Out
+              </button>
+            </li>
+          ) : (
+            <>
+              <li className="options-item">
+                <button
+                  onClick={handeleClickSignIn}
+                  type="button"
+                  className="options-button"
+                >
+                  Sign In
+                </button>
+                {isSignIn && <SignIn handleCloseSignIn={handleCloseSignIn} />}
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </header>

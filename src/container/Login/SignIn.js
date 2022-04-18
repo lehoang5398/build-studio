@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import { useForm } from 'react-hook-form';
 import PropTypes from 'prop-types';
+import Register from './RegisterForm';
 import LoginForm from './LoginForm';
-import RegisterForm from './RegisterForm';
 
 function SignIn({ handleCloseSignIn }) {
   const [isSignUp, setSignUp] = useState(true);
-  const { reset } = useForm();
+
+  const {
+    reset,
+  } = useForm({});
 
   const handleClose = () => {
     if (handleCloseSignIn) {
@@ -19,11 +22,11 @@ function SignIn({ handleCloseSignIn }) {
     setSignUp(false);
     reset();
   };
-
   const openSignIn = () => {
-    reset();
     setSignUp(true);
+    reset();
   };
+ 
 
   return (
     <div className="commonPopUp acti sign">
@@ -38,9 +41,9 @@ function SignIn({ handleCloseSignIn }) {
             </div>
           </div>
           {isSignUp ? (
-            <LoginForm openSignUp={openSignUp} />
+            <LoginForm  openSignUp={openSignUp} handleClose={handleClose}/>
           ) : (
-            <RegisterForm openSignIn={openSignIn} />
+            <Register openSignIn={openSignIn}/>
           )}
         </div>
       </div>
@@ -50,6 +53,7 @@ function SignIn({ handleCloseSignIn }) {
 
 SignIn.propTypes = {
   handleCloseSignIn: PropTypes.func,
+  dispatch: PropTypes.func,
 };
 
 export default SignIn;

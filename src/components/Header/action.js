@@ -1,4 +1,4 @@
-import { LOGIN_SUCCEEDED, REGISTER } from './constants';
+import { LOGIN_SUCCEEDED, REGISTER } from '../../container/Login/constants';
 
 export const register = (data) => {
   return {

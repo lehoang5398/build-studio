@@ -1,9 +1,7 @@
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { fork } from 'redux-saga/effects';
+import userSaga from '../container/Login/saga';
 
-
-
-function* mySaga() {
-  yield takeLatest("LOGIN_SUCCEEDED");
+export default function* rootSaga() {
+  yield fork(userSaga);
 }
 
-export default mySaga;

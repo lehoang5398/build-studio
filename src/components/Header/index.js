@@ -1,21 +1,29 @@
 import React, { useState, useRef ,useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { TiArrowSortedDown } from 'react-icons/ti';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Logo } from '../../assets/image';
 import PriceProduct from './Currency';
 import { unitMoney } from '../../container/HomePage/actions';
 import currency from './data/currencies';
 import useOnClickOutside from '../../utils/UseOnClickOutside';
-import SignIn from './SignIn';
+import SignIn from '../../container/Login/SignIn';
+import { logout } from '../../container/Login/action';
 
 function Header() {
+  const dispath = useDispatch();
+  const accessToken = useSelector((state) => state.user.accessToken);
+  console.log(accessToken);
+  const tokenRefresh = useSelector((state) => state.user.refreshToken);
   const [isOpen, setOpen] = useState(false);
   const [price, setPrice] = useState({ value: 'USD' });
-  const [isSignIn, setSignIn ] = useState(false);
+  const [isSignModal, setIsSignModal ] = useState(false);
   const [isCheckBox, setIsCheckBox] = useState(1);
-  const dispath = useDispatch();
+
   const priceProductRef = useRef(null);
+
+  useOnClickOutside(priceProductRef, () => handleClickHidden());
+
 
   const handleClickHidden = () => {
     setOpen(false);
@@ -34,16 +42,19 @@ function Header() {
   };
 
   const handeleClickSignIn = () => {
-    setSignIn(true);
+    setIsSignModal(true);
   }
   const handleCloseSignIn = () => {
-    setSignIn(false)
+    setIsSignModal(false)
+  }
+  
+  function SignOut() {
+    const refreshToken = { refreshToken: tokenRefresh };
+    dispath(logout(refreshToken));
   }
 
-  useOnClickOutside(priceProductRef, () => handleClickHidden());
-
   useEffect(() => {
-    if (isSignIn) {
+    if (isSignModal) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
@@ -51,7 +62,7 @@ function Header() {
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isSignIn]);
+  }, [isSignModal]);
 
   return (
     <header className="page-header sm:grid-cols-12">
@@ -99,12 +110,35 @@ function Header() {
               </li>
             )}
           </li>
-          <li className="options-item">
+          {/* <li className="options-item">
             <button onClick = {handeleClickSignIn} type="button" className="options-button">
               Sign In
             </button>
-            {isSignIn && (<SignIn handleCloseSignIn = {handleCloseSignIn}/>)}
-          </li>
+            {isSignModal && (<SignIn handleCloseSignIn = {handleCloseSignIn}/>)}
+          </li> */}
+          { Object.keys(accessToken).length === 0 ?
+           (         
+            <li className="options-item">
+              <button
+                onClick={handeleClickSignIn}
+                type="button"
+                className="options-button"
+              >
+              Sign In
+              </button>
+              {isSignModal && <SignIn handleCloseSignIn={handleCloseSignIn}/>}
+            </li>):(
+            <li className="options-item">
+              <button
+                onClick={SignOut}
+                type="button"
+                className="options-button"
+              >
+                Log Out
+              </button>
+            </li>
+            )
+          }
         </ul>
       </div>
     </header>

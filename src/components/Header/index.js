@@ -19,7 +19,6 @@ function Header() {
   const [price, setPrice] = useState({ value: 'USD' });
   const [isSignModal, setIsSignModal ] = useState(false);
   const [isCheckBox, setIsCheckBox] = useState(1);
-
   const priceProductRef = useRef(null);
 
   useOnClickOutside(priceProductRef, () => handleClickHidden());

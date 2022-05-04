@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import AxiosClient from "./AxiosClient";
+import AxiosClient from './AxiosClient';
 
 const resource = '/auth';
 
@@ -15,8 +15,12 @@ export default {
       email,
       password,
     }),
-  logout: ({refreshToken}) =>
-  AxiosClient.post(`${resource}/logout`, {
-    refreshToken,
-  })
+  logout: ({ refreshToken }) =>
+    AxiosClient.post(`${resource}/logout`, {
+      refreshToken,
+    }),
+  products: ({ query }) =>
+    AxiosClient.get(`/studio-product`, {
+      query,
+    }),
 };

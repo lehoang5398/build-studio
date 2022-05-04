@@ -1,12 +1,13 @@
 import Axios from 'axios';
 import { APP_API } from '../config';
+import queryString from 'query-string';
 
 const AxiosClient = Axios.create({
   baseURL: APP_API,
   headers: {
     'Content-Type': 'application/json',
   },
-  // paramsSerializer: (params) => queryString.stringify(params)
+  paramsSerializer: (params) => queryString.stringify(params)
 
 });
 
